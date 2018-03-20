@@ -1,0 +1,53 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Gadget/GadgetCooldownLine" itemID="5aa089e6-0000054d" lastModified="1520470502">
+  <timeline>
+    <DOMTimeline name="GadgetCooldownLine">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0" b="-0.0138702392578125" c="0.041290283203125" d="0" tx="23.45" ty="0.25"/>
+                        </matrix>
+                        <GradientEntry color="#FFFFFF" alpha="0.552941176470588" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="0.792156862745098"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.5">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!978 396S2|0 396!0 396|0 7!0 7|978 7!978 7|978 396"/>
+                    <Edge strokeStyle="1" edges="!43 2|935.5 2"/>
+                    <Edge cubics="!978 7(;978,7 978,396 978,396q978 7 978 396)978,396;"/>
+                    <Edge cubics="!0 396(;0,396 0,7 0,7q0 396 0 7);"/>
+                    <Edge cubics="!0 7(;0,7 978,7 978,7q0 7 978 7);"/>
+                    <Edge cubics="!978 396(;978,396 0,396 0,396q978 396 0 396)0,396;"/>
+                    <Edge cubics="!978 0(;978,0 978,2 978,2q978 0 978 2);"/>
+                    <Edge cubics="!0 2(;0,2 0,0 0,0q0 2 0 0);"/>
+                    <Edge cubics="!0 2(;0,2 43,2 43,2q0 2 43 2);"/>
+                    <Edge cubics="!43 2(;43,2 936,2 936,2q43 2 936 2);"/>
+                    <Edge cubics="!936 2(;936,2 978,2 978,2q936 2 978 2);"/>
+                    <Edge cubics="!0 0(;0,0 978,0 978,0q0 0 978 0);"/>
+                    <Edge cubics="!43 2(;43,2 936,2 936,2q43 2 936 2);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

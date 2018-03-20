@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Root>
+  <Module name  = "FreeHUD"
+    movie       = "FreeHUD\FreeHUD.swf"
+    depth_layer = "Middle"
+    sub_depth   = "10"
+    variable    = "efdGameEnablesFreeHUD"
+	config_name = "efdFreeHUDConfig"
+    criteria    = "efdGameEnablesFreeHUD &amp;&amp; (guimode &amp; (GUIMODEFLAGS_INPLAY | GUIMODEFLAGS_ENABLEALLGUI))"
+	flags       = "GMF_CFG_STORE_USER_CONFIG | GMF_DONT_UNLOAD"
+  />
+</Root>

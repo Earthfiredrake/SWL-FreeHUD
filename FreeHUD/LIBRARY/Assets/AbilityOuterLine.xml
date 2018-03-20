@@ -1,0 +1,43 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Assets/AbilityOuterLine" itemID="4fc8e0c3-00002876" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/Components/Abilities.fla" sourceLibraryItemHRef="Abilities Assets/AbilityOuterLine" sourceLastModified="1317800415" lastModified="1317800415" sourceItemID="00000000-7fffffff">
+  <timeline>
+    <DOMTimeline name="AbilityOuterLine">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!941 45[900 -1 818 0!818 0|163 0!163 0[87 0 43 46!43 46[0 92 0 168!0 168|0 803!0 803[0 879 45 924!45 924[92 971 169 971!169 971[793 971 810 971!810 971[886 971 932 924!932 924[979 879 979 803!979 803|979 168!979 168[979 88 941 45"/>
+                    <Edge fillStyle1="1" edges="!928 58[892 18 807 17!807 17|175 17!175 17[96 18 56 59!56 59[16 100 18 179!18 179|18 791!18 791[18 867 59 910!59 910[101 954 181 953!181 953|799 953!799 953[875 953 917 914!917 914[961 873 962 791!962 791|962 179!962 179[961 95 928 58"/>
+                    <Edge cubics="!0 803(;0,790 0,168 0,168q0 803 0 168);"/>
+                    <Edge cubics="!979 803(;979,903 911,971 810,971q979 803Q979 879q932 924Q886 971q810 971);"/>
+                    <Edge cubics="!810 971(;793,971 182,971 169,971q810 971Q793 971q169 971);"/>
+                    <Edge cubics="!163 0(;61,0 0,67 0,168q163 0Q87 0q43 46Q0 92q0 168);"/>
+                    <Edge cubics="!818 0(;802,0 163,0 163,0q818 0 163 0);"/>
+                    <Edge cubics="!979 168(;979,67 932,-2 818,0q979 168Q979 88q941 45Q900 -1q818 0);"/>
+                    <Edge cubics="!169 971(;68,971 0,905 0,803q169 971Q92 971q45 924Q0 879q0 803);"/>
+                    <Edge cubics="!979 168(;979,186 979,786 979,803q979 168 979 803);"/>
+                    <Edge cubics="!18 791(;18,779 18,179 18,179q18 791 18 179);"/>
+                    <Edge cubics="!962 791(;961,904 897,953 799,953q962 791Q961 873q917 914Q875 953q799 953);"/>
+                    <Edge cubics="!799 953(;783,953 194,953 181,953q799 953 181 953);"/>
+                    <Edge cubics="!175 17(;70,18 15,74 18,179q175 17Q96 18q56 59Q16 100q18 179);"/>
+                    <Edge cubics="!807 17(;791,17 175,17 175,17q807 17 175 17);"/>
+                    <Edge cubics="!962 179(;961,70 924,18 807,17q962 179Q961 95q928 58Q892 18q807 17);"/>
+                    <Edge cubics="!181 953(;72,954 18,890 18,791q181 953Q101 954q59 910Q18 867q18 791);"/>
+                    <Edge cubics="!962 179(;962,196 962,775 962,791q962 179 962 791);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

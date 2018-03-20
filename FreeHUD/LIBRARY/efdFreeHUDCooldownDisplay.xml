@@ -1,0 +1,92 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="efdFreeHUDCooldownDisplay" itemID="5aadeac5-00000622" linkageExportForAS="true" linkageIdentifier="efdFreeHUDCooldownDisplay" linkageClassName="efd.FreeHUD.gui.CooldownDisplay" lastModified="1521347906" lastUniqueIdentifier="22">
+  <timeline>
+    <DOMTimeline name="efdFreeHUDCooldownDisplay">
+      <layers>
+        <DOMLayer name="gloss" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/AbilityGloss" name="m_Gloss" centerPoint3DX="24" centerPoint3DY="13">
+                  <matrix>
+                    <Matrix tx="0.2" ty="0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="23.8" y="12.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="m_CooldownLine" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/AbilityCooldownLine" name="m_CooldownLine" centerPoint3DX="24.35" centerPoint3DY="42.75">
+                  <matrix>
+                    <Matrix tx="-0.1" ty="33"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="24.45" y="9.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Outer Line" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/AbilityOuterLine" name="m_OuterLine" centerPoint3DX="24.45" centerPoint3DY="24.25">
+                  <transformationPoint>
+                    <Point x="24.45" y="24.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Content" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/AbilityContent" name="AbilityIcon">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="background color (m_Background)" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/AbilityBackground" name="m_Background" centerPoint3DX="24.45" centerPoint3DY="24.25">
+                  <transformationPoint>
+                    <Point x="24.45" y="24.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="background gray" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/AbilityBackgroundGray" name="m_BackgroundGradient" centerPoint3DX="24.45" centerPoint3DY="24.25">
+                  <transformationPoint>
+                    <Point x="24.45" y="24.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

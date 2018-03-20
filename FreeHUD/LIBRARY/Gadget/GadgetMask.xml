@@ -1,0 +1,32 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Gadget/GadgetMask" itemID="58a5e5eb-000168ed" lastModified="1493042196" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="GadgetMask">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF" alpha="0"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!511 709|700 516!700 516|700 0!700 0|220 0!220 0[0 199 0 196!0 196|0 709!0 709|511 709"/>
+                    <Edge cubics="!0 196(;0,196 0,709 0,709q0 196 0 709);"/>
+                    <Edge cubics="!0 709(;0,709 511,709 511,709q0 709 511 709);"/>
+                    <Edge cubics="!511 709(;511,709 700,516 700,516q511 709 700 516);"/>
+                    <Edge cubics="!700 516(;700,516 700,0 700,0q700 516 700 0);"/>
+                    <Edge cubics="!700 0(;700,0 220,0 220,0q700 0 220 0);"/>
+                    <Edge cubics="!220 0(;220,0 0,199 0,196q220 0Q0 199q0 196);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

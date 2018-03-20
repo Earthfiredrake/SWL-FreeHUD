@@ -1,0 +1,34 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Assets/AbilityBackground" itemID="4fc8e0c3-00002879" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/Components/Abilities.fla" sourceLibraryItemHRef="Abilities Assets/AbilityBackground" sourceLastModified="1338564822" lastModified="1338564822" sourceItemID="00000000-7fffffff">
+  <timeline>
+    <DOMTimeline name="AbilityBackground" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;7&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/AbilityBackground_gradient" name="highlight" centerPoint3DX="24.45" centerPoint3DY="24.25">
+                  <transformationPoint>
+                    <Point x="24.45" y="24.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/AbilityBackground_solid" name="background" centerPoint3DX="24.45" centerPoint3DY="24.25">
+                  <transformationPoint>
+                    <Point x="24.45" y="24.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

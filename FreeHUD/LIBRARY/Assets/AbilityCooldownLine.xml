@@ -1,0 +1,47 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Assets/AbilityCooldownLine" itemID="4fc8e0c3-00002874" lastModified="1521270449">
+  <timeline>
+    <DOMTimeline name="AbilityCooldownLine">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0" b="-0.0138702392578125" c="0.0371551513671875" d="0" tx="23.85" ty="0.25"/>
+                        </matrix>
+                        <GradientEntry color="#FFFFFF" alpha="0.552941176470588" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="0.792156862745098"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.5">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!935 396|55 396!55 396|55 7!55 7|935 7!935 7|935 396"/>
+                    <Edge strokeStyle="1" edges="!90 2|890 2"/>
+                    <Edge cubics="!90 2(;90,2 890,2 890,2q90 2 890 2);"/>
+                    <Edge cubics="!55 396(;55,396 55,7 55,7q55 396 55 7);"/>
+                    <Edge cubics="!935 7(;935,7 935,396 935,396q935 7 935 396)935,396;"/>
+                    <Edge cubics="!55 7(;55,7 935,7 935,7q55 7 935 7);"/>
+                    <Edge cubics="!935 396(;935,396 55,396 55,396q935 396 55 396)55,396;"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

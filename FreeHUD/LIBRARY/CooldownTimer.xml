@@ -1,0 +1,29 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="CooldownTimer" itemID="4be2bb2a-00000179" linkageExportForAS="true" linkageIdentifier="cooldown_template" lastModified="1493222803" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="CooldownTimer">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="ms_txt" selected="true" width="46.1" height="15.35" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="1.75" ty="52.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters></characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" italic="true" size="11" bitmapSize="220" face="_TimerFont*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
