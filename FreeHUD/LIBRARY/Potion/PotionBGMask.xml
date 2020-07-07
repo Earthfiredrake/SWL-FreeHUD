@@ -1,0 +1,26 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/PotionBGMask" itemID="58ab28c3-0000154e" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/PotionBGMask" sourceLastModified="1493044134" lastModified="1493044134" lastUniqueIdentifier="1" sourceItemID="58ab28c3-0000154e">
+  <timeline>
+    <DOMTimeline name="PotionBGMask">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF" alpha="0"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!981 850|981 122!981 122[981 0 857 0!857 0|124 0!124 0[0 0 0 122!0 122|0 850!0 850[0 972 124 972!124 972|857 972!857 972[981 972 981 850"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

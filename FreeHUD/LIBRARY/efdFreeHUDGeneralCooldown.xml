@@ -1,7 +1,23 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="efdFreeHUDCooldownDisplay" itemID="5aadeac5-00000622" linkageExportForAS="true" linkageIdentifier="efdFreeHUDCooldownDisplay" linkageClassName="efd.FreeHUD.gui.CooldownDisplay" lastModified="1521347906" lastUniqueIdentifier="22">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="efdFreeHUDGeneralCooldown" itemID="5b4968f2-0000097c" linkageExportForAS="true" linkageIdentifier="efdFreeHUDGeneralCooldown" linkageClassName="efd.FreeHUD.gui.GeneralCooldown" lastModified="1594082883" lastUniqueIdentifier="24">
   <timeline>
-    <DOMTimeline name="efdFreeHUDCooldownDisplay">
+    <DOMTimeline name="efdFreeHUDGeneralCooldown">
       <layers>
+        <DOMLayer name="HotkeyLabel" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Assets/HotkeyLabel" name="m_HotkeyLabel" centerPoint3DX="25.35" centerPoint3DY="46.75">
+                  <matrix>
+                    <Matrix tx="14.9" ty="35.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10.45" y="11.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
         <DOMLayer name="gloss" color="#FF4F4F" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
@@ -47,7 +63,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Content" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="Content" color="#9933CC" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>

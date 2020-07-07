@@ -1,0 +1,120 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="PotionCounter" itemID="590379a3-00000b00" lastModified="1594078559">
+  <timeline>
+    <DOMTimeline name="PotionCounter">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.0767669677734375" d="0.0767669677734375" tx="56.2" ty="38.2"/>
+                        </matrix>
+                        <GradientEntry color="#79FA7E" alpha="0.0980392156862745" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="0.43921568627451"/>
+                        <GradientEntry color="#A8FFA1" alpha="0.2" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.0150146484375" c="0.021728515625" d="0" tx="56.2" ty="58.5"/>
+                        </matrix>
+                        <GradientEntry color="#30DE37" alpha="0" ratio="0"/>
+                        <GradientEntry color="#2EFA1D" alpha="0.2" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                    <FillStyle index="3">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.0767669677734375" d="0.0767669677734375" tx="56.2" ty="38.2"/>
+                        </matrix>
+                        <GradientEntry color="#79FA7E" alpha="0.0980392156862745" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="0.43921568627451"/>
+                        <GradientEntry color="#A8FFA1" alpha="0.4" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                    <FillStyle index="4">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.0150146484375" c="0.021728515625" d="0" tx="56.2" ty="58.5"/>
+                        </matrix>
+                        <GradientEntry color="#30DE37" alpha="0" ratio="0"/>
+                        <GradientEntry color="#2EFA1D" alpha="0.4" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="5">
+                        <fill>
+                          <SolidColor color="#A1FFAA"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="3" strokeStyle="1" edges="!2.5 814S4|0 779.5!0 779.5[#0.05 #309.BE 0 776!0 776[#0.03 #305.DE 0 771.5!0 771.5[0 #301.5C 0 767!0 767|0 758!0 758[0 441 216 217!216 217[439 0 754 0!754 0|1492 0!1492 0[1709 0 1879 103!1879 103[1956 149 2022 217!2022 217[2246 441 2246
+ 758!2246 758|2246 767!2246 767[2246 #316.C9 2244.5 814"/>
+                    <Edge fillStyle1="2" edges="
+!2244.5 814|2246 814!2246 814[2231 1101 2023 1309!2023 1309[1957 1377 1880 1423!1880 1423[1795 1474.5 1698 1499.5!1698 1499.5[#695.EE #5DE.CE 1673.5 1505.5"/>
+                    <Edge fillStyle1="4" strokeStyle="1" edges="
+!1673.5 1505.5S4|1493 1526!1493 1526|754 1526!754 1526[#2D4.C2 1526 696.5 1524!696.5 1524[#2B4.61 #5F3.B9 688.5 1523.5!688.5 1523.5[#2A9.21 #5F2.ED 674 1522!674 1522[#25D.83 #5EB.94 542 1497.5"/>
+                    <Edge fillStyle1="2" edges="
+!542 1497.5[#214.F4 #5D7.46 524 1492.5!524 1492.5[#161.25 #5A1.7C 217 1309!217 1309[#87.52 #4C8.0D 85 1126!85 1126[#52.65 #461.05 80 1116"/>
+                    <Edge fillStyle1="4" strokeStyle="1" edges="
+!80 1116S4[#48.61 #44C.E5 65.5 1085.5!65.5 1085.5[#3B.FF #431.6E 55 1061!55 1061[#16.2E #3D4.6D 9 891"/>
+                    <Edge strokeStyle="1" edges="
+!9 891S4[#7.53 #36F.D 6 868.5"/>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="
+!6 868.5S4|5.5 859.5"/>
+                    <Edge fillStyle1="2" edges="
+!5.5 859.5[#3.32 #344.E7 2 814!2 814|2.5 814"/>
+                    <Edge fillStyle0="4" fillStyle1="2" strokeStyle="1" edges="
+!1673.5 1505.5S4[#750.1B #5B1.DE 2022 1301!2022 1301[#8B5.32 #44C.48 2244.5 814"/>
+                    <Edge fillStyle0="4" fillStyle1="3" edges="
+!2244.5 814|2.5 814"/>
+                    <Edge fillStyle0="4" fillStyle1="2" strokeStyle="1" edges="
+!2.5 814S4|5.5 859.5"/>
+                    <Edge fillStyle0="4" fillStyle1="1" edges="
+!5.5 859.5[#6.59 #365.3A 7.5 879"/>
+                    <Edge fillStyle0="4" edges="
+!7.5 879[#8.4A #374.FE 9 891"/>
+                    <Edge fillStyle0="1" edges="
+!6 868.5[#6.C6 #369.B8 7.5 879"/>
+                    <Edge fillStyle0="4" fillStyle1="2" strokeStyle="1" edges="
+!80 1116S4[#83.91 #4C0.2C 216 1301!216 1301[331 1417 470 1473!470 1473[#1F9.36 #5CF.3F 542 1497.5"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#08510B" alpha="0.6"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="
+!753 -20[438 -20 215 197!215 197[-1 421 -1 738!-1 738|-1 747!-1 747[-1 749 -1 752!-1 752[-1 754 -1 756!-1 756[-1 758 -1 760!-1 760|5 840!5 840[5 849 7 859!7 859[7 865 8 871!8 871[21 960 54 1041!54 1041[59 1053 65 1066!65 1066[71 1081
+ 79 1096!79 1096[131 1196 215 1281!215 1281[330 1397 469 1453!469 1453[504 1467 541 1478!541 1478[605 1496 673 1502!673 1502[680 1503 688 1504!688 1504[691 1504 696 1504!696 1504[724 1506 753 1506!753 1506|1492 1506!1492 1506|1673 1486
+!1673 1486[1871 1438 2021 1281!2021 1281[2228 1080 2244 794!2244 794[2245 771 2245 747!2245 747|2245 738!2245 738[2245 421 2021 197!2021 197[1955 129 1878 83!1878 83[1708 -20 1491 -20!1491 -20|753 -20"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

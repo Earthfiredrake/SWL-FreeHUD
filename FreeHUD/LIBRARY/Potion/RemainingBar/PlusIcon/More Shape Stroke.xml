@@ -1,0 +1,30 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/RemainingBar/PlusIcon/More Shape Stroke" itemID="4ec138bb-000008d8" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/RemainingBar/PlusIcon/More Shape Stroke" sourceLastModified="1493386149" lastModified="1493386149" sourceItemID="4ec138bb-000008d8">
+  <timeline>
+    <DOMTimeline name="More Shape Stroke">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" caps="none" weight="2" joints="miter">
+                        <fill>
+                          <SolidColor color="#B8FFCA"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!0 400[0 500 100 500!100 500|400 500!400 500[500 500 500 400!500 400|500 100!500 100[500 0 400 0!400 0|100 0!100 0[0 0 0 100!0 100|0 400"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

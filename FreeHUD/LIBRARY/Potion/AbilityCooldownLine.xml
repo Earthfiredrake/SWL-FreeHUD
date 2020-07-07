@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Gadget/GadgetCooldownLine" itemID="5aa089e6-0000054d" lastModified="1520470502">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/AbilityCooldownLine" itemID="58fe0a01-00001129" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/AbilityCooldownLine" sourceLastModified="1487777149" lastModified="1487777149" sourceItemID="4e8b2058-000001d0">
   <timeline>
-    <DOMTimeline name="GadgetCooldownLine">
+    <DOMTimeline name="AbilityCooldownLine">
       <layers>
         <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
           <frames>

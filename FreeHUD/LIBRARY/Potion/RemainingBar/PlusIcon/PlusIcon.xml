@@ -1,0 +1,94 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/RemainingBar/PlusIcon/PlusIcon" itemID="57e9231a-000007a4" linkageExportForAS="true" linkageIdentifier="PlusIcon" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/RemainingBar/PlusIcon/PlusIcon" sourceLastModified="1493666556" lastModified="1493666556" lastUniqueIdentifier="6" sourceItemID="57e9231a-000007a4">
+  <timeline>
+    <DOMTimeline name="PlusIcon">
+      <layers>
+        <DOMLayer name="More Shape Plus Sign" color="#9933CC" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#B8FFCA"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!270 140|270 228!270 228|355 228!355 228|355 268!355 268|270 268!270 268|270 360!270 360|230 360!230 360|230 268!230 268|146 268!146 268|146 228!146 228|230 228!230 228|230 140!230 140|270 140"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="More Shape Stroke" color="#FF4F4F" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/RemainingBar/PlusIcon/More Shape Stroke" centerPoint3DX="12.5" centerPoint3DY="12.5">
+                  <transformationPoint>
+                    <Point x="12.5" y="12.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="More Shape Fill" color="#4FFF4F" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/RemainingBar/PlusIcon/More Shape Fill" centerPoint3DX="12.5" centerPoint3DY="12.5">
+                  <transformationPoint>
+                    <Point x="12.5" y="12.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="More Shape Drop Shadow" color="#FF4F4F" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.0332794189453125" d="0.06622314453125" tx="12.7" ty="13.5"/>
+                        </matrix>
+                        <GradientEntry color="#20EE8C" alpha="0.43921568627451" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.0332794189453125" d="0.0327301025390625" tx="12.05" ty="13.1"/>
+                        </matrix>
+                        <GradientEntry color="#20EE8C" alpha="0.43921568627451" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!-359 336|-359 417!-359 417|867 417!867 417|867 117!867 117|-359 117!-359 117|-359 186"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!-359 186|854 186!854 186|854 336!854 336|-359 336"/>
+                    <Edge fillStyle1="2" edges="!-359 336|-372 336!-372 336|-372 186!-372 186|-359 186"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

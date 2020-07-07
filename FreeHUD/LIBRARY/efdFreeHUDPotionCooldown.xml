@@ -1,0 +1,227 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="efdFreeHUDPotionCooldown" itemID="5b496155-0000092b" linkageExportForAS="true" linkageIdentifier="efdFreeHUDPotionCooldown" linkageClassName="efd.FreeHUD.gui.PotionCooldown" lastModified="1531537743" lastUniqueIdentifier="24">
+  <timeline>
+    <DOMTimeline name="efdFreeHUDPotionCooldown">
+      <layers>
+        <DOMLayer name="BuyButton-NoPotions" color="#9933CC" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="PotionHit" color="#FF4FFF" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/HitArea" name="m_PotionHitArea" centerPoint3DX="23.5" centerPoint3DY="26.65">
+                  <matrix>
+                    <Matrix a="0.859359741210938" d="0.843734741210938" tx="8.45" ty="11.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="17.5" y="17.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Remaining" color="#9933CC" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/RemainingBar/PlusIcon/PlusIcon" name="m_BuyButton" centerPoint3DX="24.75" centerPoint3DY="5.4">
+                  <matrix>
+                    <Matrix a="0.365020751953125" d="0.365020751953125" tx="19.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.45" y="12.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Potion/RemainingBar/PotionsRemaining" name="m_Remaining" centerPoint3DX="39.6" centerPoint3DY="44.4">
+                  <matrix>
+                    <Matrix a="0.116897583007813" d="0.116806030273438" tx="30.65" ty="38.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="0.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Frame" color="#4FFF4F" locked="true" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="-1.52587890625e-005" b="-0.018585205078125" c="0.0185699462890625" d="-1.52587890625e-005" tx="23.3" ty="26.65"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0.0509803921568627" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="1"/>
+                          </LinearGradient>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!244 238[169 238 169 312!169 312|169 754!169 754[169 829 244 829!244 829|690 829!690 829[765 829 765 754!765 754|765 312!765 312[765 238 690 238!690 238|244 238"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Timer" color="#FF800A" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/CooldownTimer" name="m_CooldownTimer" centerPoint3DX="24" centerPoint3DY="56.55">
+                  <matrix>
+                    <Matrix a="0.923919677734375" d="0.879379272460938" ty="50"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="25.05" y="56.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="CooldownMask" color="#FF800A" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/PotionMask" name="m_CooldownMask" centerPoint3DX="23.35" centerPoint3DY="26.65">
+                  <matrix>
+                    <Matrix a="0.607635498046875" d="0.607635498046875" tx="8.45" ty="11.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="17.55" y="17.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="CooldownLine" color="#9933CC" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/AbilityCooldownLine" name="m_CooldownLine">
+                  <matrix>
+                    <Matrix a="0.615081787109375" d="0.607635498046875" tx="8.45" ty="11.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="24.45" y="9.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="GlossMask" color="#FF4F4F" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/PotionMask" name="m_GlossMask">
+                  <matrix>
+                    <Matrix a="0.607635498046875" d="0.607635498046875" tx="8.45" ty="11.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="17.55" y="17.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Gloss" color="#4F80FF" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/PotionGloss" name="m_Gloss">
+                  <matrix>
+                    <Matrix a="0.842010498046875" d="0.607635498046875" tx="8.45" ty="11.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="17.45" y="9.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Content" color="#4FFFFF" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/Potion-Notile" centerPoint3DX="23.3" centerPoint3DY="26.45">
+                  <matrix>
+                    <Matrix a="0.405471801757813" d="0.405960083007813" tx="10.35" ty="11.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="31.95" y="36.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="BGMask" color="#808080" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/PotionBGMask" name="m_BGMask">
+                  <matrix>
+                    <Matrix a="0.607635498046875" d="0.607635498046875" tx="8.45" ty="11.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="17.55" y="17.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="BG_Usable" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/PotionBG_Usable" name="m_UseBG" centerPoint3DX="23.35" centerPoint3DY="26.65">
+                  <matrix>
+                    <Matrix a="0.607635498046875" d="0.607635498046875" tx="8.45" ty="11.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="17.55" y="17.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="BG_Unusable" color="#FF800A" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Potion/PotionBG_Unusable" name="m_NoUseBG" centerPoint3DX="23.35" centerPoint3DY="26.65">
+                  <matrix>
+                    <Matrix a="0.607635498046875" d="0.607635498046875" tx="8.45" ty="11.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="17.55" y="17.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

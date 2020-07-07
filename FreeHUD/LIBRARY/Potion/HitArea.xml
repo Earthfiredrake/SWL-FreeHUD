@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Gadget/GadgetContent" itemID="58a5c8fa-00015bb8" lastModified="1487260046">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/HitArea" itemID="58ac47e1-00001210" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/HitArea" sourceLastModified="1487685641" lastModified="1531536000" sourceItemID="58ac47e1-00001210">
   <timeline>
-    <DOMTimeline name="GadgetContent">
+    <DOMTimeline name="HitArea">
       <layers>
         <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
           <frames>
@@ -13,7 +13,7 @@
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!0 0S2|700 0!700 0|700 700!700 700|0 700!0 700|0 0"/>
+                    <Edge fillStyle1="1" edges="!700 700|0 700!0 700|0 0!0 0|700 0!700 0|700 700"/>
                   </edges>
                 </DOMShape>
               </elements>

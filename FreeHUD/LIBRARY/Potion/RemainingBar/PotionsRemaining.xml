@@ -1,0 +1,45 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/RemainingBar/PotionsRemaining" itemID="58ac3ed5-000007af" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/RemainingBar/PotionsRemaining" sourceLastModified="1494965092" lastModified="1494965092" lastUniqueIdentifier="7" sourceItemID="58ac3ed5-000007af">
+  <timeline>
+    <DOMTimeline name="PotionsRemaining">
+      <layers>
+        <DOMLayer name="Text" color="#4FFF4F" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="m_Text" selected="true" fontRenderingMode="standard" left="10.35" width="121.2" height="98.75" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-236.6" ty="-266.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>6</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" size="78" bitmapSize="1560" face="_Headline*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="PotionCounter" name="i_Back" selected="true" centerPoint3DX="-165.25" centerPoint3DY="-217.85">
+                  <matrix>
+                    <Matrix a="1.20713806152344" d="1.20713806152344" tx="-233.05" ty="-263.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="56.2" y="38.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,35 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/PotionBG_Unusable" itemID="58ab28b9-0000154c" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/PotionBG_Unusable" sourceLastModified="1493044404" lastModified="1493044404" sourceItemID="58ab28b9-0000154c">
+  <timeline>
+    <DOMTimeline name="PotionBG_Unusable">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape selected="true" isFloating="true">
+                  <matrix>
+                    <Matrix tx="-89.45" ty="-1.95"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.0262603759765625" c="0.029815673828125" d="0.00030517578125" tx="111.6" ty="2.6"/>
+                        </matrix>
+                        <GradientEntry color="#555555" ratio="0"/>
+                        <GradientEntry color="#AAAAAA" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!2646 39S1|1913 39!1913 39[1789 39 1789 161!1789 161|1789 889!1789 889[1789 1011 1913 1011!1913 1011|2646 1011!2646 1011[2770 1011 2770 889!2770 889|2770 161!2770 161[2770 39 2646 39"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

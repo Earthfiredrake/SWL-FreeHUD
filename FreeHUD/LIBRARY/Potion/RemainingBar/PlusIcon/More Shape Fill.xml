@@ -1,0 +1,104 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/RemainingBar/PlusIcon/More Shape Fill" itemID="4ec138a0-000008d6" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/RemainingBar/PlusIcon/More Shape Fill" sourceLastModified="1493321326" lastModified="1493321326" sourceItemID="4ec138a0-000008d6">
+  <timeline>
+    <DOMTimeline name="More Shape Fill">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" locked="true" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="-0.0152587890625" c="0.0152587890625" d="0" tx="12.5" ty="12.5"/>
+                        </matrix>
+                        <GradientEntry color="#3ACD58" alpha="0.501960784313725" ratio="0"/>
+                        <GradientEntry color="#73E0A1" alpha="0.701960784313725" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!0 100|0 400!0 400[0 500 100 500!100 500|400 500!400 500[500 500 500 400!500 400|500 100!500 100[500 0 400 0!400 0|100 0!100 0[0 0 0 100"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" parentLayerIndex="0" locked="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.020355224609375" c="-0.0204010009765625" d="0" tx="12.45" ty="-3.5"/>
+                        </matrix>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                        <GradientEntry color="#48FF94" alpha="0.2" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!583 -70[583 67 484 165!484 165[386 264 249 264!249 264[112 264 14 165!14 165[-84 67 -84 -70!-84 -70[-84 -207 14 -306!14 -306[112 -404 249 -404!249 -404[386 -404 484 -306!484 -306[583 -207 583 -70"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F" locked="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="-0.0152587890625" c="0.0152587890625" d="0" tx="12.5" ty="12.5"/>
+                        </matrix>
+                        <GradientEntry color="#3ACD58" alpha="0.501960784313725" ratio="0"/>
+                        <GradientEntry color="#73E0A1" alpha="0.701960784313725" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!400 0|100 0!100 0[0 0 0 100!0 100|0 400!0 400[0 500 100 500!100 500|400 500!400 500[500 500 500 400!500 400|500 100!500 100[500 0 400 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.01361083984375" d="0.01361083984375" tx="12.45" ty="12.5"/>
+                        </matrix>
+                        <GradientEntry color="#024D19" alpha="0.898039215686275" ratio="0"/>
+                        <GradientEntry color="#04581E" alpha="0" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!249 489[151 489 80 417!80 417[11 347 11 250!11 250[11 151 80 82!80 82[151 10 249 10!249 10[348 10 416 82!416 82[486 151 486 250!486 250[486 347 416 417!416 417[348 489 249 489"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="CooldownTimer" itemID="4be2bb2a-00000179" linkageExportForAS="true" linkageIdentifier="cooldown_template" lastModified="1531525652" lastUniqueIdentifier="2">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Potion/CooldownTimer" itemID="58fe0a00-00001128" linkageExportForAS="true" linkageIdentifier="cooldown_template_potion" sourceFlashFilepath="../../../../Library/Flash/AS2/SWL/GUI/HUD/AbilityBar.fla" sourceLibraryItemHRef="Potion/CooldownTimer" sourceLastModified="1493227977" lastModified="1493227977" lastUniqueIdentifier="2" sourceItemID="4be2bb2a-00000179">
   <timeline>
     <DOMTimeline name="CooldownTimer">
       <layers>
@@ -8,7 +8,7 @@
               <elements>
                 <DOMDynamicText name="ms_txt" selected="true" width="46.1" height="15.35" includeOutlines="true" isSelectable="false">
                   <matrix>
-                    <Matrix tx="1.75" ty="52.3"/>
+                    <Matrix tx="2" ty="2"/>
                   </matrix>
                   <textRuns>
                     <DOMTextRun>

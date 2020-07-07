@@ -1,0 +1,94 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Assets/HotkeyLabel" itemID="4f294ac9-00000349" lastModified="1594082881" lastUniqueIdentifier="11">
+  <timeline>
+    <DOMTimeline name="HotkeyLabel">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" name="Text" labelType="name" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="m_HotkeyText" width="11" height="18.45" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="1.35" ty="2.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>F</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineSpacing="0" size="14" bitmapSize="280" face="_StandardFont*" fillColor="#EEEEEE"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="2" strength="2"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" name="LMB" labelType="name" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="KeyBinding" centerPoint3DX="8.1" centerPoint3DY="9.15">
+                  <matrix>
+                    <Matrix a="1.36825561523438" d="1.36761474609375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.7" y="6.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="MouseIcons/Final/RMB-FINAL" centerPoint3DX="9" centerPoint3DY="9.15">
+                  <matrix>
+                    <Matrix a="0.199798583984375" d="0.201339721679688" tx="4.4" ty="2.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" name="RMB" labelType="name" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="KeyBinding" centerPoint3DX="9.05" centerPoint3DY="9">
+                  <matrix>
+                    <Matrix a="1.36825561523438" d="1.36761474609375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.6" y="6.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="MouseIcons/Final/LMB-FINAL" centerPoint3DX="8.6" centerPoint3DY="9.2">
+                  <matrix>
+                    <Matrix a="0.199798583984375" d="0.201339721679688" tx="4.35" ty="2.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.75" y="0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="BG" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="KeyBinding" name="m_Background" centerPoint3DX="7" centerPoint3DY="11.3">
+                  <matrix>
+                    <Matrix a="1.13636779785156" d="1.36882019042969" tx="-0.65" ty="2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.75" y="6.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

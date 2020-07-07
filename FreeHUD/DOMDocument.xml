@@ -1,12 +1,22 @@
 <DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#339999" currentTimeline="1" xflVersion="2.1" creatorInfo="Adobe Flash Professional CS5.5" platform="Windows" versionInfo="Saved by Adobe Flash Windows 11.5 build 349" majorVersion="11" minorVersion="5" buildNumber="349" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false">
      <folders>
-          <DOMFolderItem name="Assets" itemID="5aacae5d-00000414"/>
+          <DOMFolderItem name="Assets" itemID="5aacae5d-00000414" isExpanded="true"/>
           <DOMFolderItem name="Fonts" itemID="5aacae50-00000413"/>
-          <DOMFolderItem name="Gadget" itemID="5aa07aca-00000465"/>
+          <DOMFolderItem name="MouseIcons" itemID="58d17626-00000a82"/>
+          <DOMFolderItem name="MouseIcons/Final" itemID="5f03b4a5-00000669"/>
+          <DOMFolderItem name="MouseIcons/WorkFiles" itemID="58d17620-00000a7e"/>
+          <DOMFolderItem name="Potion" itemID="58fe0a00-00001105"/>
+          <DOMFolderItem name="Potion/RemainingBar" itemID="58ac3e87-000006ca"/>
+          <DOMFolderItem name="Potion/RemainingBar/PlusIcon" itemID="58adaba7-00008395"/>
      </folders>
      <fonts>
-          <DOMFontItem name="Fonts/_TimerFont" itemID="4c723c9e-000001d3" linkageExportForAS="true" linkageIdentifier="_TimerFont" font="RussellSquare" size="0" id="1" sourceLastImported="1520471844" embeddedCharacters="(:-. )" embedRanges="3"/>
+          <DOMFontItem name="Fonts/_StandardFont" itemID="592300f1-000006f2" linkageExportForAS="true" linkageIdentifier="_StandardFont" font="FuturaStd-BookFix" size="0" id="4" sourceLastImported="1339234010" embedRanges="9999"/>
+          <DOMFontItem name="Fonts/_TimerFont" itemID="5b4933c9-00000447" linkageExportForAS="true" linkageIdentifier="_TimerFont" font="RussellSquare" size="0" id="1" sourceLastImported="1520471844" embeddedCharacters="(:-. )" embedRanges="3"/>
+          <DOMFontItem name="Fonts/_Headline" itemID="50c0a615-00007700" linkageExportForAS="true" linkageIdentifier="_Headline" font="Futura-HeavyFix" size="0" id="2" sourceLastImported="1337936073" embedRanges="9999"/>
      </fonts>
+     <media>
+          <DOMBitmapItem name="Potion/potion-notile.png" itemID="595419a5-0000046e" sourceExternalFilepath="C:/Users/maxb/Desktop/TSW Work/Potion/potion-notile.png" sourceLastImported="1498683778" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Potion/potion-notile.png" bitmapDataHRef="M 1 1531524041.dat" frameRight="1280" frameBottom="1480"/>
+     </media>
      <symbols>
           <Include href="Assets/AbilityBackground.xml" loadImmediate="false" itemID="4fc8e0c3-00002879" lastModified="1338564822"/>
           <Include href="Assets/AbilityBackground_gradient.xml" loadImmediate="false" itemID="4fc8e81d-00002e50" lastModified="1338564252"/>
@@ -16,20 +26,29 @@
           <Include href="Assets/AbilityCooldownLine.xml" loadImmediate="false" itemID="4fc8e0c3-00002874" lastModified="1521270449"/>
           <Include href="Assets/AbilityGloss.xml" loadImmediate="false" itemID="4fc8e0c3-00002872" lastModified="1317800882"/>
           <Include href="Assets/AbilityOuterLine.xml" loadImmediate="false" itemID="4fc8e0c3-00002876" lastModified="1317800415"/>
-          <Include href="CooldownTimer.xml" itemID="4be2bb2a-00000179" lastModified="1493222803"/>
-          <Include href="efdFreeHUDCooldownDisplay.xml" itemID="5aadeac5-00000622" lastModified="1521347906"/>
-          <Include href="efdFreeHUDGadget.xml" itemID="5aa08a3d-00000552" lastModified="1521159138"/>
-          <Include href="Gadget/CooldownTimer.xml" itemID="5900c593-0000033e" lastModified="1493667630"/>
-          <Include href="Gadget/GadgetBG_Unusable.xml" loadImmediate="false" itemID="58a5c778-00015b9f" lastModified="1493042389"/>
-          <Include href="Gadget/GadgetBG_Usable.xml" loadImmediate="false" itemID="58a5c770-00015b99" lastModified="1504623690"/>
-          <Include href="Gadget/GadgetBGMask.xml" loadImmediate="false" itemID="58a5e5e7-000168eb" lastModified="1493042493"/>
-          <Include href="Gadget/GadgetContent.xml" loadImmediate="false" itemID="58a5c8fa-00015bb8" lastModified="1487260046"/>
-          <Include href="Gadget/GadgetCooldownLine.xml" loadImmediate="false" itemID="5aa089e6-0000054d" lastModified="1520470502"/>
-          <Include href="Gadget/GadgetFrame.xml" loadImmediate="false" itemID="58a5c6bc-00015b8c" lastModified="1493042169"/>
-          <Include href="Gadget/GadgetGloss.xml" loadImmediate="false" itemID="58a5e59f-000168e8" lastModified="1493042792"/>
-          <Include href="Gadget/GadgetMask.xml" loadImmediate="false" itemID="58a5e5eb-000168ed" lastModified="1493042196"/>
-          <Include href="Gadget/GadgetSlot.xml" loadImmediate="false" itemID="5aa089bd-0000054a" lastModified="1520470461"/>
-          <Include href="GemOverlay.xml" itemID="55fd2a2d-0000c82e" lastModified="1442754411"/>
+          <Include href="Assets/HotkeyLabel.xml" loadImmediate="false" itemID="4f294ac9-00000349" lastModified="1594082881"/>
+          <Include href="CooldownTimer.xml" itemID="4be2bb2a-00000179" lastModified="1531525652"/>
+          <Include href="efdFreeHUDGeneralCooldown.xml" itemID="5b4968f2-0000097c" lastModified="1594082883"/>
+          <Include href="efdFreeHUDPotionCooldown.xml" itemID="5b496155-0000092b" lastModified="1531537743"/>
+          <Include href="GemOverlay.xml" itemID="55fd2a2d-0000c82e" lastModified="1531525613"/>
+          <Include href="KeyBinding.xml" loadImmediate="false" itemID="58fa3b50-00000228" lastModified="1493401138"/>
+          <Include href="MouseIcons/Final/LMB-FINAL.xml" loadImmediate="false" itemID="58d175e1-00000a6d" lastModified="1493313822"/>
+          <Include href="MouseIcons/Final/RMB-FINAL.xml" loadImmediate="false" itemID="58d175fc-00000a74" lastModified="1493313879"/>
+          <Include href="MouseIcons/WorkFiles/Mouse-LMB.xml" loadImmediate="false" itemID="58d1759e-00000a66" lastModified="1493313911"/>
+          <Include href="Potion/AbilityCooldownLine.xml" loadImmediate="false" itemID="58fe0a01-00001129" lastModified="1487777149"/>
+          <Include href="Potion/CooldownTimer.xml" itemID="58fe0a00-00001128" lastModified="1493227977"/>
+          <Include href="Potion/HitArea.xml" loadImmediate="false" itemID="58ac47e1-00001210" lastModified="1531536000"/>
+          <Include href="Potion/Potion-Notile.xml" loadImmediate="false" itemID="595419b2-00000470" lastModified="1498683861"/>
+          <Include href="Potion/PotionBG_Unusable.xml" loadImmediate="false" itemID="58ab28b9-0000154c" lastModified="1493044404"/>
+          <Include href="Potion/PotionBG_Usable.xml" loadImmediate="false" itemID="58ab28bf-0000154d" lastModified="1504623749"/>
+          <Include href="Potion/PotionBGMask.xml" loadImmediate="false" itemID="58ab28c3-0000154e" lastModified="1493044134"/>
+          <Include href="Potion/PotionGloss.xml" loadImmediate="false" itemID="58ab28cf-00001551" lastModified="1487612111"/>
+          <Include href="Potion/PotionMask.xml" loadImmediate="false" itemID="58ab28d2-00001552" lastModified="1493043973"/>
+          <Include href="Potion/RemainingBar/PlusIcon/More Shape Fill.xml" loadImmediate="false" itemID="4ec138a0-000008d6" lastModified="1493321326"/>
+          <Include href="Potion/RemainingBar/PlusIcon/More Shape Stroke.xml" loadImmediate="false" itemID="4ec138bb-000008d8" lastModified="1493386149"/>
+          <Include href="Potion/RemainingBar/PlusIcon/PlusIcon.xml" itemID="57e9231a-000007a4" lastModified="1493666556"/>
+          <Include href="Potion/RemainingBar/PotionsRemaining.xml" loadImmediate="false" itemID="58ac3ed5-000007af" lastModified="1494965092"/>
+          <Include href="PotionCounter.xml" loadImmediate="false" itemID="590379a3-00000b00" lastModified="1594078559"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
@@ -49,6 +68,19 @@
      </timelines>
      <PrinterSettings/>
      <publishHistory>
+          <PublishItem publishSize="241175" publishTime="1594082796"/>
+          <PublishItem publishSize="241168" publishTime="1594081787"/>
+          <PublishItem publishSize="203334" publishTime="1594074685"/>
+          <PublishItem publishSize="203366" publishTime="1594072579"/>
+          <PublishItem publishSize="203368" publishTime="1594068764"/>
+          <PublishItem publishSize="203367" publishTime="1594068715"/>
+          <PublishItem publishSize="203160" publishTime="1531551711"/>
+          <PublishItem publishSize="203072" publishTime="1531540361"/>
+          <PublishItem publishSize="203072" publishTime="1531540165"/>
+          <PublishItem publishSize="203037" publishTime="1531538450"/>
+          <PublishItem publishSize="203012" publishTime="1531525789"/>
+          <PublishItem publishSize="202924" publishTime="1531525722"/>
+          <PublishItem publishSize="202924" publishTime="1531525707"/>
           <PublishItem publishSize="47168" publishTime="1521347417"/>
           <PublishItem publishSize="47168" publishTime="1521347326"/>
           <PublishItem publishSize="47791" publishTime="1521270244"/>

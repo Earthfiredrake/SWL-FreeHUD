@@ -16,13 +16,16 @@ import efd.FreeHUD.lib.DebugUtils;
 import efd.FreeHUD.lib.Mod;
 import efd.FreeHUD.lib.etu.GemController;
 
-class efd.FreeHUD.gui.CooldownDisplay extends MovieClip {
+// Abstract base class for cooldowns
+// Provides triggers for activating a cooldown and GEM support
 
-	public function CooldownDisplay() {
+class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
+
+	public function BasicCooldown() {
         super();
 
 		Clear();
-		m_Gloss._visible = false;
+		m_Gloss._visible = false;		
 		Colors.ApplyColor(m_Background.background, 0);
 		Colors.ApplyColor(m_Background.highlight, 4276545);
         AbilityIconLoader = new MovieClipLoader();
@@ -33,8 +36,8 @@ class efd.FreeHUD.gui.CooldownDisplay extends MovieClip {
 
 	public function ChangeAbility(data:Object):Void {
 		if (data.m_Icon) {
-			SetIcon(Utils.CreateResourceString(data.m_Icon));
-			if (SlotID > 0 && !data.m_Enabled) { DebugUtils.TraceMsgS("Ability disabled on creation"); }
+			LoadIconClip(Utils.CreateResourceString(data.m_Icon));
+			Enabled = SlotID == GadgetSlot || data.m_Enabled;
 		} else { Clear(); }
 		UpdateVisuals();
 	}
@@ -44,8 +47,14 @@ class efd.FreeHUD.gui.CooldownDisplay extends MovieClip {
 		UpdateVisuals();
 	}
 
-	public function SetVisibilityBehaviour(hideReady:Boolean):Void {
-		HideReady = hideReady;
+	public function SetOffCDBehaviour(hideReady:Boolean):Void {
+		HideReady = hideReady;		
+		UpdateVisuals();
+	}
+	
+	public function SetShotgunSupportBehaviour(showReloads:Boolean, showHotkeys:Boolean): Void {
+		ShowSGReloads = showReloads;
+		ShowSGHotkeys = showHotkeys;
 		UpdateVisuals();
 	}
 
@@ -58,7 +67,7 @@ class efd.FreeHUD.gui.CooldownDisplay extends MovieClip {
         }
     }
 
-    private function SetIcon(path:String):Void {
+    private function LoadIconClip(path:String):Void {
 		if (IsLoaded) { AbilityIconLoader.unloadClip(AbilityIcon); }
         IsLoaded = AbilityIconLoader.loadClip(path, AbilityIcon);
 
@@ -72,7 +81,7 @@ class efd.FreeHUD.gui.CooldownDisplay extends MovieClip {
 		if (unlock && !GemManager) {
 			GemManager = GemController.create("GuiEditModeInterface" + SlotID, _parent, _parent.getNextHighestDepth(), this);
 			GemManager.lockAxis(0);
-			GemManager.addEventListener("scrollWheel", this, "ChangeScale");
+			GemManager.addEventListener("scrollWheel", this, "GemScroll");
 			GemManager.addEventListener("endDrag", this, "ChangePosition");
 		}
 		if (!unlock) {
@@ -84,12 +93,16 @@ class efd.FreeHUD.gui.CooldownDisplay extends MovieClip {
 
 	private function ChangePosition(event:Object):Void { SignalGeometryChanged.Emit(); }
 
-	private function ChangeScale(event:Object):Void {
-		var newScale:Number = _xscale + event.delta * 5;
-		newScale = Math.min(200, Math.max(30, newScale));
-		_xscale = newScale;
-		_yscale = newScale;
-		SignalGeometryChanged.Emit();
+	private function GemScroll(event:Object):Void {
+		if (Key.isDown(Key.SHIFT)) { // Adjust transparency (TODO: Store this)
+			var newAlpha:Number = Math.min(100, Math.max(10, _alpha + event.delta * 5));
+			_alpha = newAlpha;
+		} else { // Ajust scale
+			var newScale:Number = Math.min(200, Math.max(30, _xscale + event.delta * 5));
+			_xscale = newScale;
+			_yscale = newScale;
+			SignalGeometryChanged.Emit();
+		}
 	}
 
 /// Cooldowns
@@ -144,15 +157,32 @@ class efd.FreeHUD.gui.CooldownDisplay extends MovieClip {
     }
 
     private function UpdateVisuals():Void {
-		_visible = GemManager || (!HideReady || CooldownOverlay) && IsLoaded && (SlotID == 0 || TooltipDataProvider.GetSpellTooltip(Shortcut.m_ShortcutList[SlotID].m_SpellId, 0).m_RecastTime > 0);
+		_visible = GemManager ||
+			(IsLoaded &&
+			 ((ShowSGReloads && IsSGReload()) ||
+			  ((!HideReady || CooldownOverlay) &&
+			   (SlotID == GadgetSlot || HasAbilityCooldown()))));
         if (CooldownOverlay != undefined) { return; }
 		UpdateVisualState();
+	}
+
+	private function HasAbilityCooldown():Boolean {
+		return TooltipDataProvider.GetSpellTooltip(Shortcut.m_ShortcutList[SlotID].m_SpellId, 0).m_RecastTime > 0;
+	}
+
+	private function IsSGReload():Boolean {
+		var spellID:Number = Shortcut.m_ShortcutList[SlotID].m_SpellId - 9253300; // All shotgun reloads are 92533xx		
+		return spellID ==  5 || // AP rounds
+			   spellID == 14 || // DB rounds
+			   spellID == 15 || // DU rounds
+			   spellID == 16;   // AI rounds
 	}
 
 	private function UpdateVisualState():Void {
         if (Enabled) { SetAvailable(); }
 		else { SetDisabled(); }
-    }
+		m_HotkeyLabel._visible = ShowSGHotkeys && IsSGReload();
+    }	
 
 /// vars
     private var AbilityIcon:MovieClip;
@@ -160,18 +190,22 @@ class efd.FreeHUD.gui.CooldownDisplay extends MovieClip {
 	private var IsLoaded:Boolean = false;
 
 	private var HideReady:Boolean = false;
+	private var ShowSGReloads:Boolean = true;
+	private var ShowSGHotkeys:Boolean = true;
 	private var Enabled:Boolean;
 
 	private var GemManager:GemController;
 	private var SignalGeometryChanged:Signal;
 
 	private var SlotID:Number;
+	private static var GadgetSlot:Number = 0;
 
 	private var CooldownOverlay:AbilityCooldown = undefined;
 
 	// Library object elements
 	private var m_OuterLine:MovieClip;
     private var m_BackgroundGradient:MovieClip;
+	private var m_HotkeyLabel:MovieClip;
 
 	// Referenced from AbilityCooldown library class, don't rename
 	private var m_CooldownLine:MovieClip;

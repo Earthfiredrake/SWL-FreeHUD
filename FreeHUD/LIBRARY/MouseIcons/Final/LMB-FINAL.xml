@@ -1,0 +1,42 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="MouseIcons/Final/LMB-FINAL" itemID="58d175e1-00000a6d" lastModified="1493313822" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="LMB-FINAL">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="MouseIcons/WorkFiles/Mouse-LMB" centerPoint3DX="-0.5" centerPoint3DY="1.15">
+                  <matrix>
+                    <Matrix a="0.99957275390625" d="0.999053955078125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.5" y="1.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#3F3F3F"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!919 -143|20 -143!20 -143[-104 -143 -104 -20!-104 -20|-104 1316!-104 1316[-104 1439 20 1439!20 1439|919 1439!919 1439[1043 1439 1043 1316!1043 1316|1043 -20!1043 -20[1043 -143 919 -143"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
