@@ -1,4 +1,4 @@
-﻿// Copyright 2018, Earthfiredrake
+﻿// Copyright 2018-2020, Earthfiredrake
 // Released under the terms of the MIT License
 // https://github.com/Earthfiredrake/SWL-FreeHUD
 

@@ -16,6 +16,13 @@ Upgrading should retain settings as much as possible. All settings are currently
 
 ## Change Log
 
+Version 0.0.2-beta
++ Additional support for Shotgun users
+    + Reload options now appear when replacing any ability (even those not generally displayed)
+	+ Hotkey reminders are displayed for reload options (as their replacement is semi-random)
+	+ Either part can be disabled with /setoption (efdFreeHudShowSGReloads and efdFreeHudShowSGHotkeys)
++ Fixes bug where abilities were inaccurately reflecting the disabled state when first loaded
+
 Version 0.0.1-beta
 + Initial release
 + Active ability and gadget icons
@@ -24,8 +31,7 @@ Version 0.0.1-beta
 
 ## Known Issues
 
-This is an early version of this mod, so there's likely to be a few issues discovered:
-+ Abilities (mostly weapon gimmicks) may not accurately reflect the disabled state when first loaded
+This is still an early version of this mod, so there's likely to be a few issues discovered:
 + Default layout doesn't match the ability bar (Won't fix: whole point is to rearrange them anyway)
 
 As always, defect reports, suggestions, and contributions are welcome. They can be sent to Peloprata in SWL (by mail or pm), via the github issues system, or @Peloprata in #modding on discord.
@@ -52,7 +58,7 @@ Master/Head is the most recent packaged release. Develop/Head is usually a commi
 Once built, 'FreeHUD.swf' and the contents of 'config' should be copied to the directory 'FreeHUD' in the game's mod directory. '/reloadui' is sufficient to force the game to load an updated swf or mod data file, but changes to the game config files (*Prefs.xml and Modules.xml) will require a restart of the client and possible deletion of .bxml caches from the mod directory.
 
 ## License and Attribution
-Copyright (c) 2018 Earthfiredrake<br/>
+Copyright (c) 2018-2020 Earthfiredrake<br/>
 Software and source released under the MIT License
 
 Uses the TSW-AddonUtils library and graphical elements from the UI_Tweaks mod<br/>
@@ -69,4 +75,5 @@ https://commons.wikimedia.org/wiki/File:Simpleicons_Interface_unlocked-padlock.s
 Special Thanks to:<br/>
 The usual suspects<br/>
 Shivvies for the idea<br/>
+Theck for pushing on the Shotgun support<br/>
 Everyone who provided suggestions, testing and feedback<br/>
