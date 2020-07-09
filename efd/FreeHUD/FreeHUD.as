@@ -244,6 +244,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		for (var i:Number = 0; i < CooldownCount; ++i) {
 			var hotkey:MovieClip = CooldownViews[i].m_HotkeyLabel;
 			hotkey.gotoAndStop("Text");
+			hotkey.m_HotkeyText.autoSize = "left";
 			hotkey.m_HotkeyText.text = "";
 			hotkey.m_HotkeyText.text = "<variable name='hotkey_short:" + 
 				(i == GadgetIndex ? 
@@ -259,6 +260,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 				hotkey.m_Background._width = Math.max(hotkey.m_HotkeyText._width, 22);
 				hotkey.m_HotkeyText._x = hotkey.m_Background._width/2 - hotkey.m_HotkeyText._width/2;
 			}
+			hotkey._x = (CooldownViews[i]._width - hotkey._width) / 2;
 		}
 	}
 
