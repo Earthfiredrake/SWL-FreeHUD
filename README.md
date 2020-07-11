@@ -15,6 +15,9 @@ The safest method for upgrading (required for installing) is to have the client 
 Upgrading should retain settings as much as possible. All settings are currently saved per character.
 
 ## Change Log
+Version 0.0.3-beta
++ Hides when out of combat (can toggle with /setoption efdFreeHUDHideOutOfCombat)
++ Fixes bug where multi character hotkey codes (mostly "MB#") were being truncated when displayed
 
 Version 0.0.2-beta
 + Additional support for Shotgun users

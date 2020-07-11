@@ -26,7 +26,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 			// Debug flag at top so that commenting out leaves no hanging ','
 			// Debug : true,
 			Name : "FreeHUD",
-			Version : "0.0.2.beta",
+			Version : "0.0.3.beta",
 			Subsystems : {
 				Config : {
 					Init : ConfigManager.Create
@@ -52,6 +52,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		super(GetModInfo(), hostMovie);
 		Config.NewSetting("CooldownLayout", GetDefaultLayout());
 		Config.NewSetting("HideReady", false);
+		Config.NewSetting("HideOutOfCombat", true);
 		Config.NewSetting("ShowSGReloads", true);
 		Config.NewSetting("ShowSGHotkeys", true);
 
@@ -62,17 +63,15 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		if (!CooldownViews) {
 			CooldownViews = new Array;
 			var layoutSettings:Array = Config.GetValue("CooldownLayout");
-			var hideReady:Boolean = Config.GetValue("HideReady");
-			var showSGReloads:Boolean = Config.GetValue("ShowSGReloads");
-			var showSGHotkeys:Boolean = Config.GetValue("ShowSGHotkeys");
 			for (var i:Number = 0; i < CooldownCount; ++i) {
 				var layout:Object = layoutSettings[i];
 				var cooldown:MovieClip = HostClip.attachMovie("efdFreeHUDGeneralCooldown", "CooldownDisplay" + i, HostClip.getNextHighestDepth(),
 					{_x : layout.x, _y : layout.y, _xscale : layout.scale, _yscale : layout.scale, _alpha : layout.alpha,
 					 SlotID : (i == GadgetIndex ? 0 : i + AbilityOffset),
-					 HideReady : hideReady,
-					 ShowSGReloads : showSGReloads,
-					 ShowSGHotkeys : showSGHotkeys});
+					 HideReady : Config.GetValue("HideReady"),
+					 HideOutOfCombat : Config.GetValue("HideOutOfCombat"),
+					 ShowSGReloads :Config.GetValue("ShowSGReloads"),
+					 ShowSGHotkeys : Config.GetValue("ShowSGHotkeys")});
 				cooldown.ChangeAbility(i < AbilityCount ?
 					Shortcut.m_ShortcutList[i + AbilityOffset] :
 					Equipment.GetItemAt(_global.Enums.ItemEquipLocation.e_Aegis_Talisman_1));
@@ -109,6 +108,9 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		HideReadyDV = DistributedValue.Create(DVPrefix + ModName + "HideReady");
 		HideReadyDV.SetValue(Config.GetValue("HideReady"));
 		HideReadyDV.SignalChanged.Connect(HideReadyChanged, this);
+		HideOutOfCombatDV = DistributedValue.Create(DVPrefix + ModName + "HideOutOfCombat");
+		HideOutOfCombatDV.SetValue(Config.GetValue("HideOutOfCombat"));
+		HideOutOfCombatDV.SignalChanged.Connect(HideOutOfCombatChanged, this);
 		SGReloadsDV = DistributedValue.Create(DVPrefix + ModName + "ShowSGReloads");
 		SGReloadsDV.SetValue(Config.GetValue("ShowSGReloads"));
 		SGReloadsDV.SignalChanged.Connect(SGReloadsChanged, this);
@@ -138,6 +140,12 @@ class efd.FreeHUD.FreeHUD extends Mod {
 				}
 				break;
 			}
+			case "HideOutOfCombat": {
+				for (var i : Number = 0; i < CooldownCount; ++i) {
+					CooldownViews[i].SetOutOfCombatVisibility(newValue);
+				}
+				break;
+			}
 			case "ShowSGReloads": {
 				var showHotkeys:Boolean = Config.GetValue("ShowSGHotkeys");
 				for (var i:Number = 0; i < CooldownCount; ++i) {
@@ -158,6 +166,10 @@ class efd.FreeHUD.FreeHUD extends Mod {
 
 	private function HideReadyChanged(dv:DistributedValue):Void {
 		Config.SetValue("HideReady", dv.GetValue());
+	}
+	
+	private function HideOutOfCombatChanged(dv:DistributedValue):Void {
+		Config.SetValue("HideOutOfCombat", dv.GetValue());
 	}
 	
 	private function SGReloadsChanged(dv:DistributedValue):Void {
@@ -271,6 +283,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 
 	private var CooldownViews:Array;
 	private var HideReadyDV:DistributedValue;
+	private var HideOutOfCombatDV:DistributedValue;
 	private var SGReloadsDV:DistributedValue;
 	private var SGHotkeysDV:DistributedValue;
 	private var Equipment:Inventory;

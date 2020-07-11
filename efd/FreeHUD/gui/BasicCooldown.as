@@ -2,6 +2,7 @@
 // Released under the terms of the MIT License
 // https://github.com/Earthfiredrake/SWL-FreeHUD
 
+import com.GameInterface.Game.Character;
 import com.GameInterface.Game.Shortcut;
 import com.GameInterface.Game.ShortcutData;
 import com.GameInterface.InventoryItem;
@@ -32,6 +33,10 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 
 		GlobalSignal.SignalSetGUIEditMode.Connect(ManageGEM, this);
 		SignalGeometryChanged = new Signal();
+		
+		var clientChar:Character = Character.GetClientCharacter();
+		clientChar.SignalToggleCombat.Connect(NotifyInCombat, this);
+		NotifyInCombat(clientChar.IsThreatened());
 	}
 
 	public function ChangeAbility(data:Object):Void {
@@ -49,6 +54,11 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 
 	public function SetOffCDBehaviour(hideReady:Boolean):Void {
 		HideReady = hideReady;		
+		UpdateVisuals();
+	}
+	
+	public function SetOutOfCombatVisibility(hideOutOfCombat:Boolean):Void {
+		HideOutOfCombat = hideOutOfCombat;
 		UpdateVisuals();
 	}
 	
@@ -108,8 +118,6 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 /// Cooldowns
     public function AddCooldown(cooldownStart:Number, cooldownEnd:Number, cooldownFlags:Number):Void {
 		if (cooldownFlags & _global.Enums.TemplateLock.e_GlobalCooldown) { return; }
-		// Unneeded? update visuals now, to avoid being forever stuck in the wrong state if other abilities are spammed
-		// UpdateVisualState();
 		AbilityIcon._alpha = 35;
 
 		// Start or update cooldown
@@ -135,6 +143,11 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 	}
 
 /// Display Adjustments
+	private function NotifyInCombat(inCombat:Boolean):Void {
+		IsInCombat = inCombat;
+		if (HideOutOfCombat) { UpdateVisuals(); }
+	}
+
 	private function SetOffCD():Void {
         m_CooldownLine._visible = false;
         m_OuterLine._visible = true;
@@ -159,11 +172,14 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
     private function UpdateVisuals():Void {
 		_visible = GemManager ||
 			(IsLoaded &&
+			 (IsInCombat || !HideOutOfCombat) &&
 			 ((ShowSGReloads && IsSGReload()) ||
 			  ((!HideReady || CooldownOverlay) &&
 			   (SlotID == GadgetSlot || HasAbilityCooldown()))));
         if (CooldownOverlay != undefined) { return; }
-		UpdateVisualState();
+		if (Enabled) { SetAvailable(); }
+		else { SetDisabled(); }
+		m_HotkeyLabel._visible = ShowSGHotkeys && IsSGReload();
 	}
 
 	private function HasAbilityCooldown():Boolean {
@@ -178,18 +194,14 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 			   spellID == 16;   // AI rounds
 	}
 
-	private function UpdateVisualState():Void {
-        if (Enabled) { SetAvailable(); }
-		else { SetDisabled(); }
-		m_HotkeyLabel._visible = ShowSGHotkeys && IsSGReload();
-    }	
-
 /// vars
     private var AbilityIcon:MovieClip;
     private var AbilityIconLoader:MovieClipLoader;
 	private var IsLoaded:Boolean = false;
 
 	private var HideReady:Boolean = false;
+	private var HideOutOfCombat:Boolean = true;
+	private var IsInCombat:Boolean = false;
 	private var ShowSGReloads:Boolean = true;
 	private var ShowSGHotkeys:Boolean = true;
 	private var Enabled:Boolean;
