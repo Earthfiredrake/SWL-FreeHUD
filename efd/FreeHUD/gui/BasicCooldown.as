@@ -2,7 +2,6 @@
 // Released under the terms of the MIT License
 // https://github.com/Earthfiredrake/SWL-FreeHUD
 
-import com.GameInterface.Game.Character;
 import com.GameInterface.Game.Shortcut;
 import com.GameInterface.Game.ShortcutData;
 import com.GameInterface.InventoryItem;
@@ -33,32 +32,12 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 
 		GlobalSignal.SignalSetGUIEditMode.Connect(ManageGEM, this);
 		SignalGeometryChanged = new Signal();
-		
-		var clientChar:Character = Character.GetClientCharacter();
-		clientChar.SignalToggleCombat.Connect(NotifyInCombat, this);
-		NotifyInCombat(clientChar.IsThreatened());
 	}
 
-	public function ChangeAbility(data:Object):Void {
-		if (data.m_Icon) {
-			LoadIconClip(Utils.CreateResourceString(data.m_Icon));
-			Enabled = SlotID == GadgetSlot || data.m_Enabled;
-		} else { Clear(); }
-		UpdateVisuals();
-	}
-
-	public function EnableAbility(enabled:Boolean):Void {
-		Enabled = enabled;
-		UpdateVisuals();
-	}
+/// Mod Settings Changes
 
 	public function SetOffCDBehaviour(hideReady:Boolean):Void {
-		HideReady = hideReady;		
-		UpdateVisuals();
-	}
-	
-	public function SetOutOfCombatVisibility(hideOutOfCombat:Boolean):Void {
-		HideOutOfCombat = hideOutOfCombat;
+		HideReady = hideReady;
 		UpdateVisuals();
 	}
 	
@@ -67,23 +46,6 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 		ShowSGHotkeys = showHotkeys;
 		UpdateVisuals();
 	}
-
-    private function Clear():Void {
-        Enabled = true;
-
-        if (IsLoaded) {
-            AbilityIconLoader.unloadClip(AbilityIcon);
-			IsLoaded = false;
-        }
-    }
-
-    private function LoadIconClip(path:String):Void {
-		if (IsLoaded) { AbilityIconLoader.unloadClip(AbilityIcon); }
-        IsLoaded = AbilityIconLoader.loadClip(path, AbilityIcon);
-
-        AbilityIcon._xscale = m_Background._width;
-        AbilityIcon._yscale = m_Background._height;
-    }
 
 /// GUI Edit Mode
 
@@ -115,7 +77,38 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 		}
 	}
 
-/// Cooldowns
+/// Game State Changes
+
+	public function ChangeAbility(data:Object):Void {
+		if (data.m_Icon) {
+			LoadIconClip(Utils.CreateResourceString(data.m_Icon));
+			Enabled = SlotID == GadgetSlot || data.m_Enabled;
+		} else { Clear(); }
+		UpdateVisuals();
+	}
+
+	public function EnableAbility(enabled:Boolean):Void {
+		Enabled = enabled;
+		UpdateVisuals();
+	}
+
+    private function Clear():Void {
+        Enabled = true;
+
+        if (IsLoaded) {
+            AbilityIconLoader.unloadClip(AbilityIcon);
+			IsLoaded = false;
+        }
+    }
+
+    private function LoadIconClip(path:String):Void {
+		if (IsLoaded) { AbilityIconLoader.unloadClip(AbilityIcon); }
+        IsLoaded = AbilityIconLoader.loadClip(path, AbilityIcon);
+
+        AbilityIcon._xscale = m_Background._width;
+        AbilityIcon._yscale = m_Background._height;
+    }
+
     public function AddCooldown(cooldownStart:Number, cooldownEnd:Number, cooldownFlags:Number):Void {
 		if (cooldownFlags & _global.Enums.TemplateLock.e_GlobalCooldown) { return; }
 		AbilityIcon._alpha = 35;
@@ -143,47 +136,34 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 	}
 
 /// Display Adjustments
-	private function NotifyInCombat(inCombat:Boolean):Void {
-		IsInCombat = inCombat;
-		if (HideOutOfCombat) { UpdateVisuals(); }
+    private function UpdateVisuals():Void {
+		_visible = GemManager ||
+			(IsLoaded &&
+			 ((ShowSGReloads && IsSGReload()) ||
+			  CooldownOverlay ||
+			  (!HideReady && HasAbilityCooldown())));
+		m_HotkeyLabel._visible = ShowSGHotkeys && (GemManager || IsSGReload());
+        if (CooldownOverlay != undefined) { return; }
+		
+		SetOffCDVisual();
+		SetEnabledVisual();
 	}
-
-	private function SetOffCD():Void {
+	
+	private function SetOffCDVisual():Void {
         m_CooldownLine._visible = false;
         m_OuterLine._visible = true;
 		Colors.ApplyColor(m_OuterLine, Colors.e_ColorBlack);
     }
-
-    public function SetDisabled():Void {
-        SetOffCD();
-        m_Background._visible = false;
-
-        AbilityIcon._alpha = 50;
-    }
-
-    public function SetAvailable():Void {
-        SetOffCD();
-        m_Background._visible = true;
-
-        AbilityIcon._alpha = 100;
-        m_Background._alpha = 100;
-    }
-
-    private function UpdateVisuals():Void {
-		_visible = GemManager ||
-			(IsLoaded &&
-			 (IsInCombat || !HideOutOfCombat) &&
-			 ((ShowSGReloads && IsSGReload()) ||
-			  ((!HideReady || CooldownOverlay) &&
-			   (SlotID == GadgetSlot || HasAbilityCooldown()))));
-		m_HotkeyLabel._visible = ShowSGHotkeys && IsSGReload();
-        if (CooldownOverlay != undefined) { return; }
-		if (Enabled) { SetAvailable(); }
-		else { SetDisabled(); }
+	
+	private function SetEnabledVisual():Void {
+		m_Background._visible = Enabled;
+		m_Background._alpha = 100;
+		AbilityIcon._alpha = Enabled ? 100 : 50;
 	}
 
 	private function HasAbilityCooldown():Boolean {
-		return TooltipDataProvider.GetSpellTooltip(Shortcut.m_ShortcutList[SlotID].m_SpellId, 0).m_RecastTime > 0;
+		return SlotID == GadgetSlot ||
+			TooltipDataProvider.GetSpellTooltip(Shortcut.m_ShortcutList[SlotID].m_SpellId, 0).m_RecastTime > 0;
 	}
 
 	private function IsSGReload():Boolean {
@@ -200,7 +180,6 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 	private var IsLoaded:Boolean = false;
 
 	private var HideReady:Boolean = false;
-	private var HideOutOfCombat:Boolean = true;
 	private var IsInCombat:Boolean = false;
 	private var ShowSGReloads:Boolean = true;
 	private var ShowSGHotkeys:Boolean = true;

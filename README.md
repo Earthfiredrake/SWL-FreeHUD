@@ -17,6 +17,7 @@ Upgrading should retain settings as much as possible. All settings are currently
 ## Change Log
 Version 0.0.3-beta
 + Hides when out of combat (can toggle with /setoption efdFreeHUDHideOutOfCombat)
++ Hotkey reminders are now visible in GUI Edit Mode if enabled
 + Fixes bug where multi character hotkey codes (mostly "MB#") were being truncated when displayed
 + Fixes bug where hotkey icon remained visible after reloading on shotgun abilities actively on cooldown
 

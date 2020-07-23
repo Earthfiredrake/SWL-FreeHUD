@@ -8,6 +8,7 @@ import com.GameInterface.Game.Shortcut;
 import com.GameInterface.Game.ShortcutData;
 import com.GameInterface.Inventory;
 import com.GameInterface.Utils;
+import com.Utils.GlobalSignal;
 import com.Utils.ID32;
 
 import efd.FreeHUD.lib.Mod;
@@ -17,7 +18,6 @@ import efd.FreeHUD.lib.sys.ConfigManager;
 //   Config window
 //   Better handling of gimick abililites
 //   Wings, Health Pots, Dodge, Belt, Repair?
-//   Show only in combat
 //   Hide default interface
 
 class efd.FreeHUD.FreeHUD extends Mod {
@@ -57,6 +57,8 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		Config.NewSetting("ShowSGHotkeys", true);
 
 		Equipment = new Inventory(new ID32(_global.Enums.InvType.e_Type_GC_WeaponContainer, Character.GetClientCharID().GetInstance()));
+		
+		CooldownWrapper = HostClip.createEmptyMovieClip("CooldownWrapper", HostClip.getNextHighestDepth());
 	}
 
 	private function Activate():Void {
@@ -65,7 +67,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 			var layoutSettings:Array = Config.GetValue("CooldownLayout");
 			for (var i:Number = 0; i < CooldownCount; ++i) {
 				var layout:Object = layoutSettings[i];
-				var cooldown:MovieClip = HostClip.attachMovie("efdFreeHUDGeneralCooldown", "CooldownDisplay" + i, HostClip.getNextHighestDepth(),
+				var cooldown:MovieClip = CooldownWrapper.attachMovie("efdFreeHUDGeneralCooldown", "CooldownDisplay" + i, CooldownWrapper.getNextHighestDepth(),
 					{_x : layout.x, _y : layout.y, _xscale : layout.scale, _yscale : layout.scale, _alpha : layout.alpha,
 					 SlotID : (i == GadgetIndex ? 0 : i + AbilityOffset),
 					 HideReady : Config.GetValue("HideReady"),
@@ -105,6 +107,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	}
 
 	private function LoadComplete():Void {
+		// TODO: Setting DVs are frequently used, see about adding feature into lib.Config
 		HideReadyDV = DistributedValue.Create(DVPrefix + ModName + "HideReady");
 		HideReadyDV.SetValue(Config.GetValue("HideReady"));
 		HideReadyDV.SignalChanged.Connect(HideReadyChanged, this);
@@ -117,7 +120,24 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		SGHotkeysDV = DistributedValue.Create(DVPrefix + ModName + "ShowSGHotkeys");
 		SGHotkeysDV.SetValue(Config.GetValue("ShowSGHotkeys"));
 		SGHotkeysDV.SignalChanged.Connect(SGHotkeysChanged, this);
+
+		GlobalSignal.SignalSetGUIEditMode.Connect(ToggleGEM, this);
+		var clientChar:Character = Character.GetClientCharacter();
+		clientChar.SignalToggleCombat.Connect(UpdateWrapperVisibility, this);
+		UpdateWrapperVisibility();
+		
 		super.LoadComplete();
+	}
+
+	private function UpdateWrapperVisibility():Void {
+		CooldownWrapper._visible = EnableGEM ||
+								   !Config.GetValue("HideOutOfCombat") ||
+								   Character.GetClientCharacter().IsThreatened();
+	}
+
+	private function ToggleGEM(unlock:Boolean):Void {
+		EnableGEM = unlock;
+		UpdateWrapperVisibility();
 	}
 
 	private function ConfigChanged(setting:String, newValue, oldValue):Void {
@@ -141,9 +161,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 				break;
 			}
 			case "HideOutOfCombat": {
-				for (var i : Number = 0; i < CooldownCount; ++i) {
-					CooldownViews[i].SetOutOfCombatVisibility(newValue);
-				}
+				UpdateWrapperVisibility();
 				break;
 			}
 			case "ShowSGReloads": {
@@ -281,6 +299,9 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	private static var CooldownCount:Number = AbilityCount + 1;
 	private static var GadgetIndex = AbilityCount;
 
+	private var EnableGEM:Boolean = false;
+
+	private var CooldownWrapper:MovieClip;
 	private var CooldownViews:Array;
 	private var HideReadyDV:DistributedValue;
 	private var HideOutOfCombatDV:DistributedValue;
