@@ -18,6 +18,7 @@ Upgrading should retain settings as much as possible. All settings are currently
 Version 0.0.3-beta
 + Hides when out of combat (can toggle with /setoption efdFreeHUDHideOutOfCombat)
 + Fixes bug where multi character hotkey codes (mostly "MB#") were being truncated when displayed
++ Fixes bug where hotkey icon remained visible after reloading on shotgun abilities actively on cooldown
 
 Version 0.0.2-beta
 + Additional support for Shotgun users

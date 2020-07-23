@@ -176,10 +176,10 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 			 ((ShowSGReloads && IsSGReload()) ||
 			  ((!HideReady || CooldownOverlay) &&
 			   (SlotID == GadgetSlot || HasAbilityCooldown()))));
+		m_HotkeyLabel._visible = ShowSGHotkeys && IsSGReload();
         if (CooldownOverlay != undefined) { return; }
 		if (Enabled) { SetAvailable(); }
 		else { SetDisabled(); }
-		m_HotkeyLabel._visible = ShowSGHotkeys && IsSGReload();
 	}
 
 	private function HasAbilityCooldown():Boolean {
