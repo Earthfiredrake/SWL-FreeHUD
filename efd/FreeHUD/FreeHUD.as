@@ -2,7 +2,6 @@
 // Released under the terms of the MIT License
 // https://github.com/Earthfiredrake/SWL-FreeHUD
 
-import com.GameInterface.DistributedValue;
 import com.GameInterface.Game.Character;
 import com.GameInterface.Game.Shortcut;
 import com.GameInterface.Game.ShortcutData;
@@ -51,10 +50,10 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	public function FreeHUD(hostMovie:MovieClip) {
 		super(GetModInfo(), hostMovie);
 		Config.NewSetting("CooldownLayout", GetDefaultLayout());
-		Config.NewSetting("HideReady", false);
-		Config.NewSetting("HideOutOfCombat", true);
-		Config.NewSetting("ShowSGReloads", true);
-		Config.NewSetting("ShowSGHotkeys", true);
+		Config.NewSetting("HideReady", false, "");
+		Config.NewSetting("HideOutOfCombat", true, "");
+		Config.NewSetting("ShowSGReloads", true, "");
+		Config.NewSetting("ShowSGHotkeys", true, "");
 
 		Equipment = new Inventory(new ID32(_global.Enums.InvType.e_Type_GC_WeaponContainer, Character.GetClientCharID().GetInstance()));
 		
@@ -107,20 +106,6 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	}
 
 	private function LoadComplete():Void {
-		// TODO: Setting DVs are frequently used, see about adding feature into lib.Config
-		HideReadyDV = DistributedValue.Create(DVPrefix + ModName + "HideReady");
-		HideReadyDV.SetValue(Config.GetValue("HideReady"));
-		HideReadyDV.SignalChanged.Connect(HideReadyChanged, this);
-		HideOutOfCombatDV = DistributedValue.Create(DVPrefix + ModName + "HideOutOfCombat");
-		HideOutOfCombatDV.SetValue(Config.GetValue("HideOutOfCombat"));
-		HideOutOfCombatDV.SignalChanged.Connect(HideOutOfCombatChanged, this);
-		SGReloadsDV = DistributedValue.Create(DVPrefix + ModName + "ShowSGReloads");
-		SGReloadsDV.SetValue(Config.GetValue("ShowSGReloads"));
-		SGReloadsDV.SignalChanged.Connect(SGReloadsChanged, this);
-		SGHotkeysDV = DistributedValue.Create(DVPrefix + ModName + "ShowSGHotkeys");
-		SGHotkeysDV.SetValue(Config.GetValue("ShowSGHotkeys"));
-		SGHotkeysDV.SignalChanged.Connect(SGHotkeysChanged, this);
-
 		GlobalSignal.SignalSetGUIEditMode.Connect(ToggleGEM, this);
 		var clientChar:Character = Character.GetClientCharacter();
 		clientChar.SignalToggleCombat.Connect(UpdateWrapperVisibility, this);
@@ -180,22 +165,6 @@ class efd.FreeHUD.FreeHUD extends Mod {
 			}
 			default: super.ConfigChanged(setting, newValue, oldValue);
 		}
-	}
-
-	private function HideReadyChanged(dv:DistributedValue):Void {
-		Config.SetValue("HideReady", dv.GetValue());
-	}
-	
-	private function HideOutOfCombatChanged(dv:DistributedValue):Void {
-		Config.SetValue("HideOutOfCombat", dv.GetValue());
-	}
-	
-	private function SGReloadsChanged(dv:DistributedValue):Void {
-		Config.SetValue("ShowSGReloads", dv.GetValue());
-	}
-	
-	private function SGHotkeysChanged(dv:DistributedValue):Void {
-		Config.SetValue("ShowSGHotkeys", dv.GetValue());
 	}
 
 	private function UpdateMod(newVersion:String, oldVersion:String):Void {
@@ -303,9 +272,5 @@ class efd.FreeHUD.FreeHUD extends Mod {
 
 	private var CooldownWrapper:MovieClip;
 	private var CooldownViews:Array;
-	private var HideReadyDV:DistributedValue;
-	private var HideOutOfCombatDV:DistributedValue;
-	private var SGReloadsDV:DistributedValue;
-	private var SGHotkeysDV:DistributedValue;
 	private var Equipment:Inventory;
 }
