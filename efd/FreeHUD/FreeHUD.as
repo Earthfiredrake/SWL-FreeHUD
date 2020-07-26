@@ -58,45 +58,11 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		Config.NewSetting("ShowSGHotkeys", true, "");
 
 		Equipment = new Inventory(new ID32(_global.Enums.InvType.e_Type_GC_WeaponContainer, Character.GetClientCharID().GetInstance()));
-		
+
 		CooldownWrapper = HostClip.createEmptyMovieClip("CooldownWrapper", HostClip.getNextHighestDepth());
 	}
 
-	private function Activate():Void {
-		if (!CooldownViews) {
-			CooldownViews = new Array;
-			var layoutSettings:Array = Config.GetValue("CooldownLayout");
-			for (var i:Number = 0; i < CooldownCount; ++i) {
-				var layout:Object = layoutSettings[i];
-				var cooldown:MovieClip = CooldownWrapper.attachMovie("efdFreeHUDGeneralCooldown", "CooldownDisplay" + i, CooldownWrapper.getNextHighestDepth(),
-					{_x : layout.x, _y : layout.y, _xscale : layout.scale, _yscale : layout.scale, _alpha : layout.alpha,
-					 SlotID : (i == GadgetIndex ? 0 : i + AbilityOffset),
-					 HideReady : Config.GetValue("HideReady"),
-					 HideOutOfCombat : Config.GetValue("HideOutOfCombat"),
-					 ShowSGReloads :Config.GetValue("ShowSGReloads"),
-					 ShowSGHotkeys : Config.GetValue("ShowSGHotkeys")});
-				cooldown.ChangeAbility(i < AbilityCount ?
-					Shortcut.m_ShortcutList[i + AbilityOffset] :
-					Equipment.GetItemAt(_global.Enums.ItemEquipLocation.e_Aegis_Talisman_1));
-				CooldownViews.push(cooldown);
-			}
-			LoadHotkeys();
-		}		
-		Shortcut.SignalShortcutAdded.Connect(AbilityChanged, this);
-		Shortcut.SignalShortcutRemoved.Connect(AbilityChanged, this);
-		Shortcut.SignalShortcutMoved.Connect(AbilityMoved, this);
-		Shortcut.SignalShortcutEnabled.Connect(EnableAbility, this);
-		Shortcut.SignalCooldownTime.Connect(AbilityCooldown, this);
-		Shortcut.SignalSwapShortcut.Connect(AbilityChanged, this); //Shotgun reloads
-
-		Equipment.SignalItemAdded.Connect(ItemChanged, this);
-		Equipment.SignalItemLoaded.Connect(ItemChanged, this);
-		Equipment.SignalItemRemoved.Connect(ItemChanged, this);
-		Equipment.SignalItemCooldown.Connect(ItemCooldown, this);
-		Equipment.SignalItemCooldownRemoved.Connect(ItemCooldown, this);
-		
-		Shortcut.SignalHotkeyChanged.Connect(LoadHotkeys, this);
-	}
+	private function Activate():Void { }
 
 	private function Deactivate():Void {
 		var layout = new Array();
@@ -108,11 +74,42 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	}
 
 	private function LoadComplete():Void {
+		CooldownViews = new Array;
+		var layoutSettings:Array = Config.GetValue("CooldownLayout");
+		for (var i:Number = 0; i < CooldownCount; ++i) {
+			var layout:Object = layoutSettings[i];
+			var cooldown:MovieClip = CooldownWrapper.attachMovie("efdFreeHUDGeneralCooldown", "CooldownDisplay" + i, CooldownWrapper.getNextHighestDepth(),
+				{_x : layout.x, _y : layout.y, _xscale : layout.scale, _yscale : layout.scale, _alpha : layout.alpha,
+				 SlotID : (i == GadgetIndex ? 0 : i + AbilityOffset),
+				 HideReady : Config.GetValue("HideReady"),
+				 ShowSGReloads :Config.GetValue("ShowSGReloads"),
+				 ShowSGHotkeys : Config.GetValue("ShowSGHotkeys")});
+			cooldown.ChangeAbility(i < AbilityCount ?
+				Shortcut.m_ShortcutList[i + AbilityOffset] :
+				Equipment.GetItemAt(_global.Enums.ItemEquipLocation.e_Aegis_Talisman_1));
+			CooldownViews.push(cooldown);
+		}
+		LoadHotkeys();
+
 		GlobalSignal.SignalSetGUIEditMode.Connect(ToggleGEM, this);
 		var clientChar:Character = Character.GetClientCharacter();
 		clientChar.SignalToggleCombat.Connect(CombatToggled, this);
 		UpdateWrapperVisibility();
-		
+
+		Shortcut.SignalShortcutAdded.Connect(AbilityChanged, this);
+		Shortcut.SignalShortcutRemoved.Connect(AbilityChanged, this);
+		Shortcut.SignalShortcutMoved.Connect(AbilityMoved, this);
+		Shortcut.SignalShortcutEnabled.Connect(EnableAbility, this);
+		Shortcut.SignalCooldownTime.Connect(AbilityCooldown, this);
+		Shortcut.SignalSwapShortcut.Connect(AbilityChanged, this); //Shotgun reloads
+		Shortcut.SignalHotkeyChanged.Connect(LoadHotkeys, this);
+
+		Equipment.SignalItemAdded.Connect(ItemChanged, this);
+		Equipment.SignalItemLoaded.Connect(ItemChanged, this);
+		Equipment.SignalItemRemoved.Connect(ItemChanged, this);
+		Equipment.SignalItemCooldown.Connect(ItemCooldown, this);
+		Equipment.SignalItemCooldownRemoved.Connect(ItemCooldown, this);
+
 		super.LoadComplete();
 	}
 
@@ -121,7 +118,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		for (var i:Number = 0; i < CooldownCount; ++i) {
 			if (CooldownViews[i].CooldownOverlay != undefined) { ++activeCooldowns; }
 		}
-		
+
 		CooldownWrapper._visible = EnableGEM ||
 								   !Config.GetValue("HideOutOfCombat") ||
 								   Character.GetClientCharacter().IsThreatened() ||
@@ -150,7 +147,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 			}
 		}
 	}
-	
+
 	private function DeferWrapperUpdate():Void {
 		clearInterval(PostCombatDelayRunning);
 		PostCombatDelayRunning = 0;
@@ -208,7 +205,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	private function UpdateMod(newVersion:String, oldVersion:String):Void {
 		UpdateLayoutArray();
 	}
-	
+
 	private function UpdateLayoutArray():Void {
 		// Ensure that layout has been updated with the most recent display count and record properties
 		// Situations where a value is removed will be corrected when serializing the data
@@ -277,15 +274,15 @@ class efd.FreeHUD.FreeHUD extends Mod {
 			UpdateWrapperVisibility();
 		}
 	}
-	
+
 	private function LoadHotkeys():Void {
 		for (var i:Number = 0; i < CooldownCount; ++i) {
 			var hotkey:MovieClip = CooldownViews[i].m_HotkeyLabel;
 			hotkey.gotoAndStop("Text");
 			hotkey.m_HotkeyText.autoSize = "left";
 			hotkey.m_HotkeyText.text = "";
-			hotkey.m_HotkeyText.text = "<variable name='hotkey_short:" + 
-				(i == GadgetIndex ? 
+			hotkey.m_HotkeyText.text = "<variable name='hotkey_short:" +
+				(i == GadgetIndex ?
 					"Use_Gadget" :
 					"Shortcutbar_" + (i + 1))
 				+ "'/ >";
@@ -312,6 +309,6 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	private var CooldownWrapper:MovieClip;
 	private var CooldownViews:Array;
 	private var Equipment:Inventory;
-	
+
 	private var PostCombatDelayRunning:Number = 0;
 }

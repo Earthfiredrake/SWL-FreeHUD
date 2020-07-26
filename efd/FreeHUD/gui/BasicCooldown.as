@@ -25,7 +25,7 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
         super();
 
 		Clear();
-		m_Gloss._visible = false;		
+		m_Gloss._visible = false;
 		Colors.ApplyColor(m_Background.background, 0);
 		Colors.ApplyColor(m_Background.highlight, 4276545);
         AbilityIconLoader = new MovieClipLoader();
@@ -40,7 +40,7 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 		HideReady = hideReady;
 		UpdateVisuals();
 	}
-	
+
 	public function SetShotgunSupportBehaviour(showReloads:Boolean, showHotkeys:Boolean): Void {
 		ShowSGReloads = showReloads;
 		ShowSGHotkeys = showHotkeys;
@@ -144,17 +144,17 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 			  (!HideReady && HasAbilityCooldown())));
 		m_HotkeyLabel._visible = ShowSGHotkeys && (GemManager || IsSGReload());
         if (CooldownOverlay != undefined) { return; }
-		
+
 		SetOffCDVisual();
 		SetEnabledVisual();
 	}
-	
+
 	private function SetOffCDVisual():Void {
         m_CooldownLine._visible = false;
         m_OuterLine._visible = true;
 		Colors.ApplyColor(m_OuterLine, Colors.e_ColorBlack);
     }
-	
+
 	private function SetEnabledVisual():Void {
 		m_Background._visible = Enabled;
 		m_Background._alpha = 100;
@@ -167,7 +167,7 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 	}
 
 	private function IsSGReload():Boolean {
-		var spellID:Number = Shortcut.m_ShortcutList[SlotID].m_SpellId - 9253300; // All shotgun reloads are 92533xx		
+		var spellID:Number = Shortcut.m_ShortcutList[SlotID].m_SpellId - 9253300; // All shotgun reloads are 92533xx
 		return spellID ==  5 || // AP rounds
 			   spellID == 14 || // DB rounds
 			   spellID == 15 || // DU rounds
@@ -180,7 +180,6 @@ class efd.FreeHUD.gui.BasicCooldown extends MovieClip {
 	private var IsLoaded:Boolean = false;
 
 	private var HideReady:Boolean = false;
-	private var IsInCombat:Boolean = false;
 	private var ShowSGReloads:Boolean = true;
 	private var ShowSGHotkeys:Boolean = true;
 	private var Enabled:Boolean;
