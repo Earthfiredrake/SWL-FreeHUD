@@ -110,7 +110,7 @@ import com.Utils.Signal;
 		SystemsLoaded = { LocalizedText: false };
 		if (modInfo.Subsystems.Config != undefined) { SystemsLoaded.Config = false; }
 		ModLoadedDV = CreateModDV("Loaded", false);
-		ModEnabledDV = CreateModDV("Enabled", undefined, ModEnabledChanged, this);
+		ModEnabledDV = CreateModDV("Enabled", null, ModEnabledChanged, this);
 
 		ModListDV = CreateFrameworkDV("ListMods", false, ReportVersion, this);
 
@@ -235,7 +235,7 @@ import com.Utils.Signal;
 	}
 
 /// DistributedValue Utility Functions
-	// An 'undefined' initialValue will be ignored (but a 'null' will be used)
+	// An 'undefined' initialValue will be ignored ('null' can be used to force a value into the DV that queries as undefined)
 	public static function CreateFrameworkDV(dvName:String, initialValue:Object, callback:Function, callbackContext:Object):DistributedValue {
 		return CreateDV("emf" + dvName, initialValue, callback, callbackContext);
 	}
