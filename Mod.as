@@ -2,7 +2,7 @@
 // Released under the terms of the MIT License
 // https://github.com/Earthfiredrake/SWL-FrameworkMod
 
-// Mod Framework v1.1.4
+// Mod Framework v1.1.5
 // Revision numbers are for internal merge tracking only, and do not require an upgrade notification
 // See ConfigManager for notification format for major/minor upgrades
 
@@ -167,13 +167,13 @@ import com.Utils.Signal;
 			if (Config.GetValue("TopbarIntegration") == undefined) { Config.SetValue("TopbarIntegration", false); }
 
 			ConfigHost.ConfigWindow.CloseWindow();
-			EnabledByGame = false;
-			CheckEnableState();
+			SuspendedByGame = true;
+			CheckEnableStates();
 			return Config.SaveConfig();
 		} else {
 			if (!Config.IsLoaded) { Config.LoadConfig(archive); }
-			EnabledByGame = true;
-			CheckEnableState();
+			SuspendedByGame = false;
+			CheckEnableStates();
 		}
 	}
 
@@ -196,7 +196,7 @@ import com.Utils.Signal;
 			dv.SetValue(false);
 			return;
 		}
-		CheckEnableState();
+		CheckEnableStates();
 		Config.SetValue("Enabled", dv.GetValue());
 		if (Icon == undefined) {
 			// No Icon, probably means it's a console style mod
@@ -205,13 +205,22 @@ import com.Utils.Signal;
 		}
 	}
 
-	private function CheckEnableState() {
-		var newState:Boolean = (Boolean)(EnabledByGame && ModEnabledDV.GetValue()); // Cast due to ModEnabledDV possibly null
-		if (newState != Enabled) { // State changed
-			Enabled = newState;
-			if (newState) { Activate(); }
+	private function CheckEnableStates() {
+		var newEnableState:Boolean = (Boolean)(DistributedValue.GetDValue(DVPrefix + "GameEnables" + ModName) && ModEnabledDV.GetValue()); // Cast due to ModEnabledDV possibly null
+		var newActiveState:Boolean = (Boolean)(!SuspendedByGame && newEnableState);
+		if (newEnableState && !IsEnabled) {
+			Enable();
+			IsEnabled = true;
+		}
+		if (newActiveState != IsActive) {
+			IsActive = newActiveState;
+			if (newActiveState) { Activate(); }
 			else { Deactivate(); }
 			Icon.Refresh();
+		}
+		if (!newEnableState && IsEnabled) {
+			Disable();
+			IsEnabled = false;
 		}
 	}
 
@@ -348,8 +357,10 @@ import com.Utils.Signal;
 /// Subclass Extension Stubs
 	public function InstallMod():Void { }
 	public function UpdateMod(newVersion:String, oldVersion:String):Void { }
-	private function Activate():Void { }
-	private function Deactivate():Void { }
+	private function Enable():Void { } // Called once on startup, then only if the mod is force disabled and reactivated, will also trigger Activate
+	private function Activate():Void { } // Called frequently, such as when changing zones , use to briefly toggle visible elements etc.
+	private function Deactivate():Void { } // Called frequently, such as when changing zones, will save config, so is a good time to ensure it's accurate
+	private function Disable():Void { } // Called only if the mod is force disabled, and once on shutdown, will have triggered Deactivate
 
 /// Properties and Variables
 	public var ModName:String;
@@ -364,8 +375,9 @@ import com.Utils.Signal;
 	public var SignalLoadCompleted:Signal;
 
 	private var ModEnabledDV:DistributedValue; // Doesn't reflect game toggles, only the player or internal mod disabling
-	private var EnabledByGame:Boolean = false;
-	private var Enabled:Boolean = false; // PlayerEnabled && GameEnabled
+	private var SuspendedByGame:Boolean = true; // Toggled when the game either temporarially deactivates the mod, or when the GameEnables DV is flipped
+	private var IsEnabled:Boolean = false; // Toggled when a hard disable (GameEnables DV or Enabled DV) is switched
+	private var IsActive:Boolean = false; // Toggled whenever the mod is deactivated (When changing zones etc.), or a hard disable is switched
 
 	private var ModListDV:DistributedValue;
 	private var VersionReported:Boolean = false;
