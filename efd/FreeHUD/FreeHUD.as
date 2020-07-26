@@ -25,7 +25,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 			// Debug flag at top so that commenting out leaves no hanging ','
 			// Debug : true,
 			Name : "FreeHUD",
-			Version : "0.0.3.beta",
+			Version : "0.0.4.beta",
 			Subsystems : {
 				Config : {
 					Init : ConfigManager.Create
@@ -52,6 +52,8 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		Config.NewSetting("CooldownLayout", GetDefaultLayout());
 		Config.NewSetting("HideReady", false, "");
 		Config.NewSetting("HideOutOfCombat", true, "");
+		Config.NewSetting("ShowOutOfCombatIfCooldown", false, "");
+		Config.NewSetting("OutOfCombatDelay", 5, "");
 		Config.NewSetting("ShowSGReloads", true, "");
 		Config.NewSetting("ShowSGHotkeys", true, "");
 
@@ -108,16 +110,51 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	private function LoadComplete():Void {
 		GlobalSignal.SignalSetGUIEditMode.Connect(ToggleGEM, this);
 		var clientChar:Character = Character.GetClientCharacter();
-		clientChar.SignalToggleCombat.Connect(UpdateWrapperVisibility, this);
+		clientChar.SignalToggleCombat.Connect(CombatToggled, this);
 		UpdateWrapperVisibility();
 		
 		super.LoadComplete();
 	}
 
 	private function UpdateWrapperVisibility():Void {
+		var activeCooldowns:Number = 0;
+		for (var i:Number = 0; i < CooldownCount; ++i) {
+			if (CooldownViews[i].CooldownOverlay != undefined) { ++activeCooldowns; }
+		}
+		
 		CooldownWrapper._visible = EnableGEM ||
 								   !Config.GetValue("HideOutOfCombat") ||
-								   Character.GetClientCharacter().IsThreatened();
+								   Character.GetClientCharacter().IsThreatened() ||
+								   PostCombatDelayRunning != 0 ||
+								   Config.GetValue("ShowOutOfCombatIfCooldown") && activeCooldowns > 0;
+	}
+
+	private function CombatToggled(isInCombat:Boolean):Void {
+		if (Config.GetValue("HideOutOfCombat")) {
+			if (isInCombat) {
+				if (PostCombatDelayRunning != 0) {
+					clearInterval(PostCombatDelayRunning);
+					PostCombatDelayRunning = 0;
+				}
+				UpdateWrapperVisibility();
+			} else {
+				var delay:Number = Config.GetValue("OutOfCombatDelay");
+				if (delay > 0) {
+					if (PostCombatDelayRunning != 0) {
+						clearInterval(PostCombatDelayRunning);
+					}
+					PostCombatDelayRunning = setInterval(this, "DeferWrapperUpdate", delay*1000);
+				} else {
+					UpdateWrapperVisibility();
+				}
+			}
+		}
+	}
+	
+	private function DeferWrapperUpdate():Void {
+		clearInterval(PostCombatDelayRunning);
+		PostCombatDelayRunning = 0;
+		UpdateWrapperVisibility();
 	}
 
 	private function ToggleGEM(unlock:Boolean):Void {
@@ -145,7 +182,8 @@ class efd.FreeHUD.FreeHUD extends Mod {
 				}
 				break;
 			}
-			case "HideOutOfCombat": {
+			case "HideOutOfCombat":
+			case "ShowOutOfCombatIfCooldown": {
 				UpdateWrapperVisibility();
 				break;
 			}
@@ -215,10 +253,11 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	private function AbilityCooldown(pos:Number, start:Number, end:Number, type:Number):Void {
 		var remains:Number = end - start;
 		if (type > 0 && remains > 0) {
-			CooldownViews[pos-AbilityOffset].AddCooldown(start, end, type)
+			CooldownViews[pos-AbilityOffset].AddCooldown(start, end, type);
 		} else if (type == 0 && remains <= 0) {
 			CooldownViews[pos-AbilityOffset].RemoveCooldown();
 		}
+		UpdateWrapperVisibility();
 	}
 
 	private function ItemChanged(inventoryID:com.Utils.ID32, itemPos:Number):Void {
@@ -233,9 +272,9 @@ class efd.FreeHUD.FreeHUD extends Mod {
 				var now:Number = Utils.GetGameTime();
 				CooldownViews[GadgetIndex].AddCooldown(now, now + seconds, 0);
 			} else {
-				Debug.TraceMsg("Cooldown force removed");
 				CooldownViews[GadgetIndex].RemoveCooldown();
 			}
+			UpdateWrapperVisibility();
 		}
 	}
 	
@@ -273,4 +312,6 @@ class efd.FreeHUD.FreeHUD extends Mod {
 	private var CooldownWrapper:MovieClip;
 	private var CooldownViews:Array;
 	private var Equipment:Inventory;
+	
+	private var PostCombatDelayRunning:Number = 0;
 }
