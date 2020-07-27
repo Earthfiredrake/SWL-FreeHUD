@@ -62,17 +62,6 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		CooldownWrapper = HostClip.createEmptyMovieClip("CooldownWrapper", HostClip.getNextHighestDepth());
 	}
 
-	private function Activate():Void { }
-
-	private function Deactivate():Void {
-		var layout = new Array();
-		for (var i:Number = 0; i < CooldownCount; ++i) {
-			var clip:MovieClip = CooldownViews[i];
-			layout.push({x : clip._x, y : clip._y, scale : clip._xscale, alpha : clip._alpha});
-		}
-		Config.SetValue("CooldownLayout", layout);
-	}
-
 	private function LoadComplete():Void {
 		CooldownViews = new Array;
 		var layoutSettings:Array = Config.GetValue("CooldownLayout");
@@ -113,17 +102,31 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		super.LoadComplete();
 	}
 
+	private function Activate():Void {
+		UpdateWrapperVisibility()
+	}
+
+	private function Deactivate():Void {
+		var layout = new Array();
+		for (var i:Number = 0; i < CooldownCount; ++i) {
+			var clip:MovieClip = CooldownViews[i];
+			layout.push({x : clip._x, y : clip._y, scale : clip._xscale, alpha : clip._alpha});
+		}
+		Config.SetValue("CooldownLayout", layout);
+		UpdateWrapperVisibility();
+	}
+
 	private function UpdateWrapperVisibility():Void {
 		var activeCooldowns:Number = 0;
 		for (var i:Number = 0; i < CooldownCount; ++i) {
 			if (CooldownViews[i].CooldownOverlay != undefined) { ++activeCooldowns; }
 		}
 
-		CooldownWrapper._visible = EnableGEM ||
+		CooldownWrapper._visible = IsActive && (EnableGEM ||
 								   !Config.GetValue("HideOutOfCombat") ||
 								   Character.GetClientCharacter().IsThreatened() ||
 								   PostCombatDelayRunning != 0 ||
-								   Config.GetValue("ShowOutOfCombatIfCooldown") && activeCooldowns > 0;
+								   Config.GetValue("ShowOutOfCombatIfCooldown") && activeCooldowns > 0);
 	}
 
 	private function CombatToggled(isInCombat:Boolean):Void {
