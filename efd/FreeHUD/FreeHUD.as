@@ -53,7 +53,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 		Config.NewSetting("HideReady", false, "");
 		Config.NewSetting("HideOutOfCombat", true, "");
 		Config.NewSetting("ShowOutOfCombatIfCooldown", false, "");
-		Config.NewSetting("OutOfCombatDelay", 5, "");
+		Config.NewSetting("OutOfCombatDelay", 3, "");
 		Config.NewSetting("ShowSGReloads", true, "");
 		Config.NewSetting("ShowSGHotkeys", true, "");
 
@@ -173,6 +173,7 @@ class efd.FreeHUD.FreeHUD extends Mod {
 					clip._xscale = layout.scale;
 					clip._yscale = layout.scale;
 					clip._alpha = layout.alpha;
+					clip.SignalGeometryChanged.Emit();
 				}
 				break;
 			}

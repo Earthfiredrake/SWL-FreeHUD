@@ -15,8 +15,16 @@ The safest method for upgrading (required for installing) is to have the client 
 Upgrading should retain settings as much as possible. All settings are currently saved per character.
 
 ## Change Log
+Version 0.0.4-beta
++ Out of combat hiding now has a delay before it takes effect (default 3 seconds, can be adjusted through `/setoption EFDFreeHUDOutOfCombatDelay`)  
+  + Inadvertently causes the mod to be more responsive when entering combat by sniping a single enemy out of a group (causes an immediate exit from combat until the group attacks, which was causing FreeHUD to flicker or not appear at all until actually engaged)
+  + Set to zero to restore previous behaviour
++ Option to always show outside of combat while a cooldown is active (`/setoption EFDFreeHUDShowOutOfCombatIfCooldown`, defaults to false)
++ `/setoption EFDFreeHUDEnabled` now actually does something (causes the mod to stop rendering if false)
++ General bug fixes and cleanup
+
 Version 0.0.3-beta
-+ Hides when out of combat (can toggle with /setoption efdFreeHUDHideOutOfCombat)
++ Hides when out of combat (can toggle with `/setoption efdFreeHUDHideOutOfCombat`)
 + Hotkey reminders are now visible in GUI Edit Mode if enabled
 + Fixes bug where multi character hotkey codes (mostly "MB#") were being truncated when displayed
 + Fixes bug where hotkey icon remained visible after reloading on shotgun abilities actively on cooldown
@@ -46,7 +54,6 @@ As always, defect reports, suggestions, and contributions are welcome. They can 
 + Option to hide when going into cooldown (opposite behaviour to HideReady)
 + Option to hide cooldown clock display
 + Pot cooldowns?
-+ Work with action swap outs (Shotgun ammo, maybe fist/ele? what other weapons behave like this?)
 + Integrate with build manager and BooBuilds(?) so that icon placement can be customized on a per build basis
 
 ## Websites
